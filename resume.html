@@ -1,694 +1,562 @@
 <html>
-
 <head>
-  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+  <title>Mahdi Pourismaiel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
   <style type="text/css">
-    @import url('https://themes.googleusercontent.com/fonts/css?kit=wAPX1HepqA24RkYW1AuHYA');
-    ol {
-      margin: 0;
-      padding: 0
+    @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+    body {
+      background: #fff;
+      font-family: Lato, sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      margin: 0 0 80px;
+      color: #222;
     }
 
-    table td,
-    table th {
-      padding: 0
-    }
-
-    .c12 {
-      border-right-style: solid;
-      padding: 5pt 5pt 5pt 5pt;
-      border-bottom-color: #000000;
-      border-top-width: 0pt;
-      border-right-width: 0pt;
-      border-left-color: #000000;
-      vertical-align: top;
-      border-right-color: #000000;
-      border-left-width: 0pt;
-      border-top-style: solid;
-      border-left-style: solid;
-      border-bottom-width: 0pt;
-      width: 207.8pt;
-      border-top-color: #000000;
-      border-bottom-style: solid
-    }
-
-    .c0 {
-      border-right-style: solid;
-      padding: 5pt 5pt 5pt 5pt;
-      border-bottom-color: #000000;
-      border-top-width: 0pt;
-      border-right-width: 0pt;
-      border-left-color: #000000;
-      vertical-align: top;
-      border-right-color: #000000;
-      border-left-width: 0pt;
-      border-top-style: solid;
-      border-left-style: solid;
-      border-bottom-width: 0pt;
-      width: 341.2pt;
-      border-top-color: #000000;
-      border-bottom-style: solid
-    }
-
-    .c16 {
-      padding-top: 14pt;
-      padding-bottom: 4pt;
-      line-height: 1.15;
-      page-break-after: avoid;
-      orphans: 2;
-      widows: 2;
-      text-align: left
-    }
-
-    .c1 {
-      color: #000000;
+    b,
+    strong,
+    .area {
       font-weight: 400;
+      color: #333;
+    }
+
+    a {
+      color: #2A94D6;
+    }
+
+    a:focus,
+    a:hover {
+      color: #F3AE4E;
       text-decoration: none;
-      vertical-align: baseline;
-      font-size: 11pt;
-      font-family: "Calibri";
-      font-style: normal
-    }
-
-    .c17 {
-      padding-top: 0pt;
-      padding-bottom: 16pt;
-      line-height: 1.0;
-      page-break-after: avoid;
-      orphans: 2;
-      widows: 2;
-      text-align: left
-    }
-
-    .c2 {
-      padding-top: 0pt;
-      padding-bottom: 0pt;
-      line-height: 1.15;
-      orphans: 2;
-      widows: 2;
-      text-align: left
-    }
-
-    .c4 {
-      color: #000000;
-      text-decoration: none;
-      vertical-align: baseline;
-      font-size: 11pt;
-      font-family: "Arial";
-      font-style: normal
-    }
-
-    .c7 {
-      padding-top: 20pt;
-      padding-bottom: 6pt;
-      line-height: 1.0;
-      page-break-after: avoid;
-      text-align: right;
-      height: 20pt
-    }
-
-    .c27 {
-      padding-top: 0pt;
-      padding-bottom: 3pt;
-      line-height: 1.15;
-      page-break-after: avoid;
-      text-align: center
-    }
-
-    .c25 {
-      color: #000000;
-      text-decoration: none;
-      vertical-align: baseline;
-      font-size: 26pt;
-      font-style: normal
-    }
-
-    .c32 {
-      padding-top: 0pt;
-      padding-bottom: 16pt;
-      line-height: 1.0;
-      page-break-after: avoid;
-      text-align: left
-    }
-
-    .c22 {
-      padding-top: 18pt;
-      padding-bottom: 6pt;
-      line-height: 1.0;
-      page-break-after: avoid;
-      text-align: left
-    }
-
-    .c23 {
-      padding-top: 20pt;
-      padding-bottom: 6pt;
-      line-height: 1.0;
-      page-break-after: avoid;
-      text-align: right
-    }
-
-    .c33 {
-      padding-top: 0pt;
-      padding-bottom: 16pt;
-      line-height: 1.15;
-      page-break-after: avoid;
-      text-align: left
-    }
-
-    .c19 {
-      color: #000000;
-      text-decoration: none;
-      vertical-align: baseline;
-      font-size: 20pt;
-      font-style: normal
-    }
-
-    .c30 {
-      padding-top: 18pt;
-      padding-bottom: 6pt;
-      line-height: 1.15;
-      page-break-after: avoid;
-      text-align: left
-    }
-
-    .c24 {
-      color: #000000;
-      text-decoration: none;
-      vertical-align: baseline;
-      font-size: 16pt;
-      font-style: normal
-    }
-
-    .c21 {
-      color: #000000;
-      text-decoration: none;
-      vertical-align: baseline;
-      font-size: 18pt;
-      font-style: normal
-    }
-
-    .c28 {
-      padding-top: 20pt;
-      padding-bottom: 6pt;
-      line-height: 1.15;
-      page-break-after: avoid;
-      text-align: right
-    }
-
-    .c5 {
-      padding-top: 0pt;
-      padding-bottom: 0pt;
-      line-height: 1.0;
-      text-align: left
-    }
-
-    .c31 {
-      margin-left: -41.2pt;
-      border-spacing: 0;
-      border-collapse: collapse;
-      margin-right: auto
-    }
-
-    .c29 {
-      text-decoration-skip-ink: none;
-      -webkit-text-decoration-skip: none;
-      color: #1155cc;
-      text-decoration: underline
-    }
-
-    .c13 {
-      color: #666666;
-      text-decoration: none;
-      vertical-align: baseline;
-      font-style: normal
-    }
-
-    .c6 {
-      font-size: 12pt;
-      font-family: "Calibri";
-      font-weight: 400
-    }
-
-    .c11 {
-      background-color: #ffffff;
-      max-width: 468pt;
-      padding: 72pt 72pt 72pt 72pt
-    }
-
-    .c26 {
-      color: inherit;
-      text-decoration: inherit
-    }
-
-    .c9 {
-      font-weight: 400;
-      font-family: "Calibri"
-    }
-
-    .c18 {
-      orphans: 2;
-      widows: 2
-    }
-
-    .c20 {
-      font-size: 12pt;
-      font-family: "Arial"
-    }
-
-    .c10 {
-      height: 11pt
-    }
-
-    .c3 {
-      font-weight: 700
-    }
-
-    .c14 {
-      font-weight: 400
-    }
-
-    .c15 {
-      font-size: 15pt
-    }
-
-    .c8 {
-      height: 0pt
-    }
-
-    .title {
-      padding-top: 0pt;
-      color: #000000;
-      font-size: 26pt;
-      padding-bottom: 3pt;
-      font-family: "Arial";
-      line-height: 1.15;
-      page-break-after: avoid;
-      orphans: 2;
-      widows: 2;
-      text-align: left
-    }
-
-    .subtitle {
-      padding-top: 0pt;
-      color: #666666;
-      font-size: 15pt;
-      padding-bottom: 16pt;
-      font-family: "Arial";
-      line-height: 1.15;
-      page-break-after: avoid;
-      orphans: 2;
-      widows: 2;
-      text-align: left
-    }
-
-    li {
-      color: #000000;
-      font-size: 11pt;
-      font-family: "Arial"
     }
 
     p {
+      line-height: 1.5;
       margin: 0;
-      color: #000000;
-      font-size: 11pt;
-      font-family: "Arial"
+    }
+
+    p+p {
+      margin-top: 10px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin-top: 0;
+      font-weight: 400;
+      color: #333;
     }
 
     h1 {
-      padding-top: 20pt;
-      color: #000000;
-      font-size: 20pt;
-      padding-bottom: 6pt;
-      font-family: "Arial";
-      line-height: 1.15;
-      page-break-after: avoid;
-      orphans: 2;
-      widows: 2;
-      text-align: left
+      font-size: 2em;
     }
 
     h2 {
-      padding-top: 18pt;
-      color: #000000;
-      font-size: 16pt;
-      padding-bottom: 6pt;
-      font-family: "Arial";
-      line-height: 1.15;
-      page-break-after: avoid;
-      orphans: 2;
-      widows: 2;
-      text-align: left
+      font-size: 1.8em;
     }
 
     h3 {
-      padding-top: 16pt;
-      color: #434343;
-      font-size: 14pt;
-      padding-bottom: 4pt;
-      font-family: "Arial";
-      line-height: 1.15;
-      page-break-after: avoid;
-      orphans: 2;
-      widows: 2;
-      text-align: left
+      font-size: 1.5em;
     }
 
     h4 {
-      padding-top: 14pt;
-      color: #666666;
-      font-size: 12pt;
-      padding-bottom: 4pt;
-      font-family: "Arial";
-      line-height: 1.15;
-      page-break-after: avoid;
-      orphans: 2;
-      widows: 2;
-      text-align: left
+      font-size: 1.2em;
     }
 
-    h5 {
-      padding-top: 12pt;
-      color: #666666;
-      font-size: 11pt;
-      padding-bottom: 4pt;
-      font-family: "Arial";
-      line-height: 1.15;
-      page-break-after: avoid;
-      orphans: 2;
-      widows: 2;
-      text-align: left
+    .date {
+      font-weight: 400;
     }
 
-    h6 {
-      padding-top: 12pt;
-      color: #666666;
-      font-size: 11pt;
-      padding-bottom: 4pt;
-      font-family: "Arial";
-      line-height: 1.15;
-      page-break-after: avoid;
-      font-style: italic;
-      orphans: 2;
-      widows: 2;
-      text-align: left
+    section {
+      margin-top: 30px;
+    }
+
+    li {
+      line-height: 1.5;
+      list-style: none;
+      padding-bottom: 5px;
+    }
+
+    li:before {
+      content: "\f052";
+      float: left;
+      font: 13px Octicons;
+      margin-top: 6px;
+      margin-left: -20px;
+      opacity: .2;
+      position: absolute;
+    }
+
+    blockquote {
+      border-left: 5px solid #e7e9ec;
+      font-size: 14px;
+    }
+
+    em {
+      color: #95a5a6;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    .container {
+      max-width: 750px;
+      padding: 0 30px;
+    }
+
+    .col-sm-6 {
+      margin-bottom: 10px;
+    }
+
+    .col-sm-12 h4 {
+      margin-top: 12px;
+    }
+
+    .col-sm-12+.col-sm-12 {
+      margin-top: 30px;
+    }
+
+    #header {
+      background: #F0F1F2;
+      padding: 50px 0;
+      margin-bottom: 30px;
+    }
+
+    #header h2 {
+      color: #647687;
+      font-size: 1.5em;
+      font-weight: 300;
+    }
+
+    #content h3 {
+      color: #F3AE4E;
+      margin-top: -4px;
+      font-weight: 400;
+    }
+
+    #content aside {
+      text-align: right;
+      padding-right: 30px;
+    }
+
+    #profiles .network {
+      text-transform: capitalize;
+    }
+
+    #work .position,
+    #volunteer .position {
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    #education .area {
+      font-weight: 700;
+    }
+
+    #education .area:before {
+      content: "\f0d7";
+      font: 16px Octicons;
+      margin-right: 6px;
+    }
+
+    #education .studyType {
+      margin-left: 25px;
+    }
+
+    #awards .summary,
+    #publications .summary {
+      margin-top: 8px;
+    }
+
+    #publications .website a:before {
+      content: attr(href);
+    }
+
+    #skills .keywords,
+    #education .courses {
+      padding: 0;
+      margin: 0;
+    }
+
+    #skills .keywords li:before,
+    #education .courses li:before {
+      content: "";
+    }
+
+    #skills .keywords li,
+    #education .courses li {
+      display: inline-block;
+      padding: 0px 6px;
+      margin: 3px 4px 4px 0;
+      border: 1px solid #ccc;
+      line-height: 1.5em;
+      border-radius: 1px;
+      background-color: #fafafa
+    }
+
+    @media (min-width: 480px) {
+      .strike-through {
+        border-top: 1px solid #f4f6f6;
+        height: 20px;
+        margin-top: 12px;
+        margin-bottom: -2px;
+        position: relative;
+      }
+      .strike-through span,
+      .strike-through a {
+        background: #fff;
+        position: absolute;
+      }
+      .strike-through span:first-child {
+        padding-right: 20px;
+        margin-top: -12px;
+      }
+      .strike-through span+span {
+        font-size: 14px;
+        margin-top: -10px;
+        padding-left: 20px;
+        right: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .col-sm-6:last-child {
+        margin-bottom: 0px;
+      }
+      #content aside {
+        margin-bottom: 10px;
+        padding-right: 0;
+        text-align: left;
+      }
+      #publications .website a:before {
+        content: "View publication";
+      }
+      .work-item {
+        padding-bottom: 10px
+      }
+      .work-item:last-child {
+        padding-bottom: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #content {
+        padding: 15px;
+      }
+      .container {
+        padding: 0 15px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      h2 {
+        font-size: 1.4em;
+      }
+      h3 {
+        font-size: 1.3em;
+      }
+      h4 {
+        font-size: 1em;
+      }
+      .date {
+        margin-bottom: 5px;
+      }
+      .strike-through span:first-child {
+        margin-bottom: 7px;
+      }
+      .strike-through span {
+        display: block;
+      }
+      #header {
+        margin-bottom: 0px;
+        padding: 20px 0;
+      }
+      #header h2 {
+        font-size: 1.2em;
+      }
+      #actions {
+        display: none;
+      }
+      section {
+        margin-top: 20px;
+        margin-bottom: 30px;
+      }
+      .website.pull-right {
+        float: none !important;
+      }
+    }
+
+    @media print {
+      body {
+        margin: 0;
+        font-size: 12px
+      }
+      #header {
+        padding: 0;
+        margin-bottom: 0px;
+      }
+      #content aside {
+        margin-bottom: 0px;
+      }
+      section {
+        margin-top: 25px;
+      }
+      .col-sm-6 {
+        margin-bottom: 0px;
+      }
+      .col-sm-12 h4 {
+        margin-top: 0px;
+      }
+      .strike-through {
+        border: none;
+        margin: 0px 0 0;
+        padding: 10px 0 5px;
+        height: auto;
+        line-height: 1em;
+      }
+      #work .position,
+      #volunteer .position,
+      #work .summary,
+      #volunteer .summary {
+        margin-bottom: 0px;
+        padding-bottom: 8px;
+      }
+      .work-item {
+        padding-bottom: 0px;
+        page-break-inside: avoid;
+      }
+      #volunteer {
+        page-break-inside: avoid;
+      }
+      #awards {
+        page-break-inside: avoid;
+      }
+      #skills {
+        page-break-inside: avoid;
+      }
+      .website {
+        display: none;
+      }
     }
   </style>
 </head>
-
-<body class="c11">
-  <p class="c27 title" id="h.idqhavks4oon">
-    <span class="c9">Mahdi Pourismaiel</span>
-  </p>
-  <a id="t.ba5d29b722d8776d59b3716533f5b45b9e80997e"></a>
-  <a id="t.0"></a>
-  <table class="c31">
-    <tbody>
-      <tr class="c8">
-        <td class="c12" colspan="1" rowspan="1">
-          <h1 class="c23 c18" id="h.858eztld52mp">
-            <span class="c19 c9">My Story</span>
+<body>
+  <header id="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-sm-push-3">
+          <h1>
+            Mahdi Pourismaiel
           </h1>
-        </td>
-        <td class="c0" colspan="1" rowspan="1">
-          <p class="c2 c10">
-            <span class="c1"></span>
-          </p>
-          <p class="c2">
-            <span class="c1">Started coding at a young age and tried some trendy languages as I grew up. My first project was to write a software
-              in Visual Basic to help my dad to keep his account. When I was about 17 I started doing freelancing jobs mostly
-              related to web development. I&rsquo;m most comfortable with React to develop web application and use it for
-              my side projects as well. I also like React Native and would like to write an app using it.</span>
-          </p>
-        </td>
-      </tr>
-      <tr class="c8">
-        <td class="c12" colspan="1" rowspan="1">
-          <h1 class="c18 c28" id="h.77hbiprxr0qg">
-            <span class="c19 c9">Work Experience</span>
-          </h1>
-        </td>
-        <td class="c0" colspan="1" rowspan="1">
-          <h2 class="c22 c18" id="h.lc34u6g29wjt">
-            <span class="c9 c21">Miare - Online Delivery Services</span>
+          <h2>
+            Front-end Developer
           </h2>
-          <p class="c17 subtitle" id="h.hpzhiphfqnpi">
-            <span class="c9">Lead </span>
-            <span class="c9">Front End Developer
-              <br>
-            </span>
-            <span class="c13 c6">April 2017 - In Progress</span>
-          </p>
-          <p class="c2">
-            <span class="c1">When I joined Miare there were two main web applications. One for the clients and one to manage the couriers
-              and orders and they were both written with Angular. Since the service was new and in search of new developers
-              with not so much code and a lot of new features coming, we migrated to React so new developers would have easier
-              time getting started.</span>
-          </p>
-          <p class="c2">
-            <span class="c1">With a lot of help from the team and much patience from the business side we improved upon the code base and
-              made it so that new apps and features were a lot easier to create and find bugs much faster.</span>
-          </p>
-          <h4 class="c16" id="h.ytdpkglp8r1p">
-            <span class="c13 c20 c14">Main Technologies</span>
-          </h4>
-          <p class="c2">
-            <span class="c9">React, Redux, Jest, Google Maps API, Sass, Yarn, Webpack, Git</span>
-          </p>
-          <h2 class="c22 c18" id="h.3qdjhoq08j24">
-            <span class="c21 c9">Taskulu - Task Management for Teams</span>
-          </h2>
-          <p class="c17 subtitle" id="h.e90enfdxzin7">
-            <span class="c9">Front End Developer
-              <br>
-            </span>
-            <span class="c13 c6">September 2015 - April 2017</span>
-          </p>
-          <p class="c2">
-            <span class="c1">Mainly worked with Backbone.js and Handlebars, also tried React, Vue.js and some other frameworks for some small
-              features and went back to Backbone.js. </span>
-          </p>
-          <p class="c2">
-            <span class="c1">The main challenges I faced in Taskulu was changing the language from CoffeeScript to JavaScript and also implementing
-              Zero-Knowledge encryption. In the process I learned how to use ES7 async/await, WebCrypto API and CryptoJS.
-              Also implementing Secure Remote Password in order to get Zero-Knowledge encryption off the ground.</span>
-          </p>
-          <h4 class="c16" id="h.m8a5a44jfzjc">
-            <span class="c13 c14 c20">Main Technologies</span>
-          </h4>
-          <p class="c2">
-            <span class="c1">Backbone.js, Marionette.js, Jquery, Lodash, WebCrypto API, JSRP, Handlebars, Sass, Git, ESlint, Mocha</span>
-          </p>
-        </td>
-      </tr>
-      <tr class="c8">
-        <td class="c12" colspan="1" rowspan="1">
-          <p class="c5 c10">
-            <span class="c1"></span>
-          </p>
-        </td>
-        <td class="c0" colspan="1" rowspan="1">
-          <h2 class="c18 c30" id="h.2u7c7afq81hr">
-            <span class="c24 c9">Designerfa - Freelancer team</span>
-          </h2>
-          <p class="c18 c33 subtitle" id="h.jt6m8fn9ce4n">
-            <span class="c9">Team Manager and Back End Developer
-              <br>
-            </span>
-            <span class="c13 c6">September 2014 - September 2015</span>
-          </p>
-          <p class="c2">
-            <span class="c1">Before Designerfa I had created some websites and small web applications on my own. So the challenge I faced
-              in Designerfa wasn&rsquo;t so much how to develop a production ready application as how to develop it on a
-              deadline. In order to be able to develop projects faster before we hit deadlines I tried to get my team to
-              work with frameworks such as CodeIgniter, and also developed a small framework that would help the team to
-              kick off projects much faster.</span>
-          </p>
-          <h4 class="c16" id="h.h3l3m247zvwq">
-            <span class="c13 c6">Main Technologies</span>
-          </h4>
-          <p class="c5 c18">
-            <span class="c9">Vanilla PHP, CodeIgniter, Wordpress, Jumla, Vanilla JavaScript, Jquery, Jquery UI, Sass, Jade (pugjs), Git</span>
-          </p>
-        </td>
-      </tr>
-      <tr class="c8">
-        <td class="c12" colspan="1" rowspan="1">
-          <h1 class="c23" id="h.tospmohx86qj">
-            <span class="c19 c9">Education</span>
-          </h1>
-        </td>
-        <td class="c0" colspan="1" rowspan="1">
-          <h2 class="c22" id="h.xui77bmj51s4">
-            <span class="c9 c24">Karaj Azad University</span>
-          </h2>
-          <p class="c32 subtitle" id="h.nhapdztilv7j">
-            <span class="c9">Information Technology
-              <br>
-            </span>
-            <span class="c6">2013 - In Progress</span>
-          </p>
-          <p class="c5">
-            <span class="c9">Worked with Magic Brain team developing a game using Game Maker Studio at first, moving on to Unity</span>
-          </p>
-        </td>
-      </tr>
-      <tr class="c8">
-        <td class="c12" colspan="1" rowspan="1">
-          <h1 class="c7" id="h.tospmohx86qj-1">
-            <span class="c9 c19"></span>
-          </h1>
-        </td>
-        <td class="c0" colspan="1" rowspan="1">
-          <h2 class="c22" id="h.bhduas13cnu3">
-            <span class="c24 c9">Sharif High School</span>
-          </h2>
-          <p class="c32 subtitle" id="h.kqxc2lgrceic">
-            <span class="c9">Diploma, Mathematics and Physics
-              <br>
-            </span>
-            <span class="c6 c13">2009 &ndash; 2013</span>
-          </p>
-          <p class="c5 c10">
-            <span class="c1"></span>
-          </p>
-        </td>
-      </tr>
-      <tr class="c8">
-        <td class="c12" colspan="1" rowspan="1">
-          <h1 class="c23" id="h.tospmohx86qj-2">
-            <span class="c19 c9">Technical Expertise</span>
-          </h1>
-        </td>
-        <td class="c0" colspan="1" rowspan="1">
-          <p class="c5 c10">
-            <span class="c4 c3"></span>
-          </p>
-          <p class="c5">
-            <span class="c3">JavaScript -</span>
-            <span>&nbsp;Although I can work with other languages and can always learn new ones, I consider JavaScript my preferred
-              one. I can get around it&rsquo;s problems and have worked with some really helpful libraries and frameworks
-              such as Backbone.js, React, SailsJs, Express.js and a lot more.</span>
-          </p>
-        </td>
-      </tr>
-      <tr class="c8">
-        <td class="c12" colspan="1" rowspan="1">
-          <h1 class="c7" id="h.tospmohx86qj-3">
-            <span class="c19 c9"></span>
-          </h1>
-        </td>
-        <td class="c0" colspan="1" rowspan="1">
-          <p class="c5">
-            <span class="c3">Git - </span>
-            <span>I have come to rely on Git so much it seems impossible to me to create a new project without initiating git in
-              it right away. Aside from the time machine-like ability that Git gives, I really enjoy using Git flow like
-              approach for maintaining bigger projects with a few people working on them. </span>
-          </p>
-        </td>
-      </tr>
-      <tr class="c8">
-        <td class="c12" colspan="1" rowspan="1">
-          <h1 class="c7" id="h.tospmohx86qj-4">
-            <span class="c19 c9"></span>
-          </h1>
-        </td>
-        <td class="c0" colspan="1" rowspan="1">
-          <p class="c5">
-            <span class="c3">VS Code -</span>
-            <span>&nbsp;Fast and extendible. I don&rsquo;t really like IDEs but enjoy some of their features like advanced autocomplete
-              and suggestions, debugger and integrated VCS. VS Code has all of that.</span>
-          </p>
-        </td>
-      </tr>
-      <tr class="c8">
-        <td class="c12" colspan="1" rowspan="1">
-          <h1 class="c7" id="h.tospmohx86qj-5">
-            <span class="c19 c9"></span>
-          </h1>
-        </td>
-        <td class="c0" colspan="1" rowspan="1">
-          <p class="c5">
-            <span class="c3">Wordpress - </span>
-            <span>I don&rsquo;t work with it so much now as I did when I was at Designerfa but still, I like how it works and sometimes
-              poke around it for fun.</span>
-          </p>
-        </td>
-      </tr>
-      <tr class="c8">
-        <td class="c12" colspan="1" rowspan="1">
-          <h1 class="c7" id="h.tospmohx86qj-6">
-            <span class="c19 c9"></span>
-          </h1>
-        </td>
-        <td class="c0" colspan="1" rowspan="1">
-          <p class="c5">
-            <span class="c4 c3">Other technologies and concepts I&rsquo;m familiar with:</span>
-          </p>
-          <p class="c5">
-            <span>Github, Gitlab, Stackoverflow, Quora, Databases, Websockets, Encryption, HTML, CSS, Sass</span>
-          </p>
-        </td>
-      </tr>
-      <tr class="c8">
-        <td class="c12" colspan="1" rowspan="1">
-          <h1 class="c23" id="h.tospmohx86qj-7">
-            <span class="c19 c9">Languages</span>
-          </h1>
-        </td>
-        <td class="c0" colspan="1" rowspan="1">
-          <p class="c5 c10">
-            <span class="c4 c3"></span>
-          </p>
-          <p class="c5">
-            <span class="c3">Persian </span>
-            <span class="c4 c14">(First language, fluent)</span>
-          </p>
-          <p class="c5">
-            <span class="c3">English </span>
-            <span class="c4 c14">(Second language, fluent)</span>
-          </p>
-        </td>
-      </tr>
-      <tr class="c8">
-        <td class="c12" colspan="1" rowspan="1">
-          <h1 class="c23" id="h.tospmohx86qj-8">
-            <span class="c19 c9">Presentations</span>
-          </h1>
-        </td>
-        <td class="c0" colspan="1" rowspan="1">
-          <p class="c5 c10">
-            <span class="c4 c3"></span>
-          </p>
-          <p class="c5">
-            <span class="c29 c3">
-              <a class="c26" href="https://www.google.com/url?q=http://slides.com/mahdipourismaiel-1/fnjs&amp;sa=D&amp;ust=1520614461279000&amp;usg=AFQjCNF3Es1Eh3-UEle0rwrdMc1fdQevuA">Functional Programming</a>
-            </span>
-            <span class="c3">&nbsp;</span>
-            <span class="c4 c14">at TehranJS</span>
-          </p>
-          <p class="c5">
-            <span class="c3 c29">
-              <a class="c26" href="https://www.google.com/url?q=http://slides.com/mahdipourismaiel-1/rxjs&amp;sa=D&amp;ust=1520614461280000&amp;usg=AFQjCNHor0V80xs0ppqTHJIAPQbRJnmFqQ">Reactive Programming</a>
-            </span>
-            <span class="c3">&nbsp;</span>
-            <span class="c4 c14">at Tehran JS</span>
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <p class="c2 c10">
-    <span class="c1"></span>
-  </p>
-  <p class="c2 c10">
-    <span class="c1"></span>
-  </p>
-  <p class="c2 c10">
-    <span class="c1"></span>
-  </p>
-  <p class="c2 c10">
-    <span class="c1"></span>
-  </p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div id="content" class="container">
+    <section id="contact" class="row">
+      <aside class="col-sm-3">
+        <h3>Contact</h3>
+      </aside>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-sm-6">
+            <strong>Email</strong>
+            <div class="email">
+              <span class="__cf_email__" data-cfemail="9df0edf2e8eff4eef0fcf4f8f1ddfaf0fcf4f1b3fef2f0">mpourismaiel at gmail</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="row">
+      <aside class="col-sm-3">
+        <h3>About</h3>
+      </aside>
+      <div class="col-sm-9">
+        <p>Started coding at a young age and tried some trendy languages as I grew up. My first project was to write a software
+          in Visual Basic to help my dad to keep his account. When I was about 17 I started doing freelancing jobs mostly
+          related to web development. I’m most comfortable with React to develop web application and use it for my side projects
+          as well. I also like React Native and would like to write an app using it.</p>
+      </div>
+    </section>
+    <section id="profiles" class="row">
+      <aside class="col-sm-3">
+        <h3>Profiles</h3>
+      </aside>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-sm-6">
+            <strong class="network">
+              Twitter
+            </strong>
+            <div class="username">
+              <div class="url">
+                <a href="https://twitter.com/pourismaiel" target="_blank">pourismaiel</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <strong class="network">
+              Github
+            </strong>
+            <div class="username">
+              <div class="url">
+                <a href="https://github.com/mpourismaiel" target="_blank">mpourismaiel</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="work" class="row">
+      <aside class="col-sm-3">
+        <h3>Work</h3>
+      </aside>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-sm-12 work-item">
+            <h4 class="strike-through">
+              <span>Miare</span>
+              <span class="date">
+                April 2017 — Present
+              </span>
+            </h4>
+            <div class="website pull-right">
+              <a href="https://miare.ir" target="_blank">https://miare.ir</a>
+            </div>
+            <div class="position">
+              Lead Front-end Developer
+            </div>
+            <div class="summary">
+              <p>When I joined Miare there were two main web applications. One for the clients and one to manage the couriers
+                and orders and they were both written with Angular. Since the service was new and in search of new developers
+                with not so much code and a lot of new features coming, we migrated to React so new developers would have
+                easier time getting started. With a lot of help from the team and much patience from the business side we
+                improved upon the code base and made it so that new apps and features were a lot easier to create and find
+                bugs much faster.</p>
+            </div>
+          </div>
+          <div class="col-sm-12 work-item">
+            <h4 class="strike-through">
+              <span>Taskulu</span>
+              <span class="date">
+                September 2015 — April 2017
+              </span>
+            </h4>
+            <div class="website pull-right">
+              <a href="https://taskulu.com" target="_blank">https://taskulu.com</a>
+            </div>
+            <div class="position">
+              Front-end Developer
+            </div>
+            <div class="summary">
+              <p>Mainly worked with Backbone.js and Handlebars, also tried React, Vue.js and some other frameworks for some
+                small features and went back to Backbone.js. The main challenges I faced in Taskulu was changing the language
+                from CoffeeScript to JavaScript and also implementing Zero-Knowledge encryption. In the process I learned
+                how to use ES7 async/await, WebCrypto API and CryptoJS. Also implementing Secure Remote Password in order
+                to get Zero-Knowledge encryption off the ground.</p>
+            </div>
+          </div>
+          <div class="col-sm-12 work-item">
+            <h4 class="strike-through">
+              <span>Designerfa - Freelancer team</span>
+              <span class="date">
+                September 2014 — September 2015
+              </span>
+            </h4>
+            <div class="website pull-right">
+              <a href="" target="_blank"></a>
+            </div>
+            <div class="position">
+              Team Manager and Back-end Developer
+            </div>
+            <div class="summary">
+              <p>Before Designerfa I had created some websites and small web applications on my own. So the challenge I faced
+                in Designerfa wasn’t so much how to develop a production ready application as how to develop it on a deadline.
+                In order to be able to develop projects faster before we hit deadlines I tried to get my team to work with
+                frameworks such as CodeIgniter, and also developed a small framework that would help the team to kick off
+                projects much faster.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="skills" class="row">
+      <aside class="col-sm-3">
+        <h3>Skills</h3>
+      </aside>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="name">
+              <h4 class="strike-through">
+                <span>Web Development</span>
+              </h4>
+            </div>
+            <ul class="keywords">
+              <li>HTML</li>
+              <li>PostCSS, SCSS, CSS</li>
+              <li>Typescript, Javascript, PHP</li>
+              <li>ReactJs, Backbone.js, VueJs</li>
+              <li>Redux</li>
+              <li>Jquery, Lodash</li>
+              <li>WebCrypto API</li>
+              <li>Jest, Ava</li>
+              <li>Webpack, Gulp, Grunt</li>
+              <li>TSLint, ESLint, Prettier</li>
+              <li>Loopback, SailsJs, CodeIgniter</li>
+              <li>Graphql</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="languages" class="row">
+      <aside class="col-sm-3">
+        <h3>Languages</h3>
+      </aside>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="language">
+              <strong>Persian</strong>
+            </div>
+            <div class="fluency">
+              Native speaker
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="language">
+              <strong>English</strong>
+            </div>
+            <div class="fluency">
+              Fluent
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="references" class="row">
+      <aside class="col-sm-3">
+        <h3>References</h3>
+      </aside>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-sm-12">
+            <div>
+              <strong>Upon request</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </body>
-
 </html>
