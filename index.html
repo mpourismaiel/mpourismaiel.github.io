@@ -1,92 +1,255 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
   <title>Mahdi Pourismaiel</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lato', sans-serif;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-  }
-
-  a {
-    transform-origin: center center;
-    transform: rotate3d(0, 0, 0, 0);
-    position: relative;
-    color: transparent;
-  }
-
-  a, a:hover, a:focus, a:active, a:visited {
-    text-decoration: none;
-  }
-
-  a:before, a:after {
-    content: attr(data-text);
-    transform: rotate3d(1, 0, 0, 180deg);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s ease;
-    position: absolute;
-    color: rgba(219, 20, 60, 1);
-    top: 0;
-    left: 0;
-  }
-
-  a:after {
-    transform: rotate3d(1, 0, 0, 0);
-    color: black;
-    opacity: 1;
-    visibility: visible;
-  }
-
-  a:hover:after {
-    transform: rotate3d(1, 0, 0, 180deg);
-    opacity: 0;
-  }
-
-  a:hover:before {
-    transform: rotate3d(1, 0, 0, 720deg);
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .name {
-    font-size: 48px;
-    text-align: center;
-    margin: 0 0 100px;
-    padding: 0;
-  }
-
-  .links {
-    font-size: 22px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 393px;
-  }
-</style>
 <body>
-  <div class="container">
-    <h1 class="name">Mahdi Pourismaiel</h1>
-    <div class="links">
-      <a data-text="Resume" href="./resume.html">Resume</a>
-      <a data-text="Github" href="https://github.com/mpourismaiel">Github</a>
-      <a data-text="Twitter" href="https://twitter.com/pourismaiel">Twitter</a>
+  <header id="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-sm-push-3">
+          <h1>
+            Mahdi Pourismaiel
+          </h1>
+          <h2>
+            Front-end Developer
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="links col-sm-9 col-sm-push-3">
+          <a href="#" class="resume">Resume</a>
+          <a href="https://github.com/mpourismaiel">Github</a>
+          <a href="https://twitter.com/pourismaiel">Twitter</a>
+        </div>
+      </div>
+      <div class="row">
+        <a href="#" class="back-link col-sm-9 col-sm-push-3">
+          Back
+        </a>
+      </div>
     </div>
+  </header>
+  <div id="content" class="container">
+    <section id="contact" class="row">
+      <aside class="col-sm-3">
+        <h3>Contact</h3>
+      </aside>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-sm-6">
+            <strong>Email</strong>
+            <div class="email">
+              <span class="__cf_email__" data-cfemail="9df0edf2e8eff4eef0fcf4f8f1ddfaf0fcf4f1b3fef2f0">mpourismaiel at gmail</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="row">
+      <aside class="col-sm-3">
+        <h3>About</h3>
+      </aside>
+      <div class="col-sm-9">
+        <p>Started coding at a young age and tried some trendy languages as I grew up. My first project was to write a software
+          in Visual Basic to help my dad to keep his account. When I was about 17 I started doing freelancing jobs mostly
+          related to web development. I’m most comfortable with React to develop web application and use it for my side projects
+          as well. I also like React Native and would like to write an app using it.</p>
+      </div>
+    </section>
+    <section id="profiles" class="row">
+      <aside class="col-sm-3">
+        <h3>Profiles</h3>
+      </aside>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-sm-6">
+            <strong class="network">
+              Twitter
+            </strong>
+            <div class="username">
+              <div class="url">
+                <a href="https://twitter.com/pourismaiel" target="_blank">pourismaiel</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <strong class="network">
+              Github
+            </strong>
+            <div class="username">
+              <div class="url">
+                <a href="https://github.com/mpourismaiel" target="_blank">mpourismaiel</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="work" class="row">
+      <aside class="col-sm-3">
+        <h3>Work</h3>
+      </aside>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-sm-12 work-item">
+            <h4 class="strike-through">
+              <span>Miare</span>
+              <span class="date">
+                April 2017 — Present
+              </span>
+            </h4>
+            <div class="website pull-right">
+              <a href="https://miare.ir" target="_blank">https://miare.ir</a>
+            </div>
+            <div class="position">
+              Lead Front-end Developer
+            </div>
+            <div class="summary">
+              <p>When I joined Miare there were two main web applications. One for the clients and one to manage the couriers
+                and orders and they were both written with Angular. Since the service was new and in search of new developers
+                with not so much code and a lot of new features coming, we migrated to React so new developers would have
+                easier time getting started. With a lot of help from the team and much patience from the business side we
+                improved upon the code base and made it so that new apps and features were a lot easier to create and find
+                bugs much faster.</p>
+            </div>
+          </div>
+          <div class="col-sm-12 work-item">
+            <h4 class="strike-through">
+              <span>Taskulu</span>
+              <span class="date">
+                September 2015 — April 2017
+              </span>
+            </h4>
+            <div class="website pull-right">
+              <a href="https://taskulu.com" target="_blank">https://taskulu.com</a>
+            </div>
+            <div class="position">
+              Front-end Developer
+            </div>
+            <div class="summary">
+              <p>Mainly worked with Backbone.js and Handlebars, also tried React, Vue.js and some other frameworks for some
+                small features and went back to Backbone.js. The main challenges I faced in Taskulu was changing the language
+                from CoffeeScript to JavaScript and also implementing Zero-Knowledge encryption. In the process I learned
+                how to use ES7 async/await, WebCrypto API and CryptoJS. Also implementing Secure Remote Password in order
+                to get Zero-Knowledge encryption off the ground.</p>
+            </div>
+          </div>
+          <div class="col-sm-12 work-item">
+            <h4 class="strike-through">
+              <span>Designerfa - Freelancer team</span>
+              <span class="date">
+                September 2014 — September 2015
+              </span>
+            </h4>
+            <div class="website pull-right">
+              <a href="" target="_blank"></a>
+            </div>
+            <div class="position">
+              Team Manager and Back-end Developer
+            </div>
+            <div class="summary">
+              <p>Before Designerfa I had created some websites and small web applications on my own. So the challenge I faced
+                in Designerfa wasn’t so much how to develop a production ready application as how to develop it on a deadline.
+                In order to be able to develop projects faster before we hit deadlines I tried to get my team to work with
+                frameworks such as CodeIgniter, and also developed a small framework that would help the team to kick off
+                projects much faster.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="skills" class="row">
+      <aside class="col-sm-3">
+        <h3>Skills</h3>
+      </aside>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="name">
+              <h4 class="strike-through">
+                <span>Web Development</span>
+              </h4>
+            </div>
+            <ul class="keywords">
+              <li>HTML</li>
+              <li>PostCSS, SCSS, CSS</li>
+              <li>Typescript, Javascript, PHP</li>
+              <li>ReactJs, Backbone.js, VueJs</li>
+              <li>Redux</li>
+              <li>Jquery, Lodash</li>
+              <li>WebCrypto API</li>
+              <li>Jest, Ava</li>
+              <li>Webpack, Gulp, Grunt</li>
+              <li>TSLint, ESLint, Prettier</li>
+              <li>Loopback, SailsJs, CodeIgniter</li>
+              <li>Graphql</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="languages" class="row">
+      <aside class="col-sm-3">
+        <h3>Languages</h3>
+      </aside>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="language">
+              <strong>Persian</strong>
+            </div>
+            <div class="fluency">
+              Native speaker
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="language">
+              <strong>English</strong>
+            </div>
+            <div class="fluency">
+              Fluent
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="references" class="row">
+      <aside class="col-sm-3">
+        <h3>References</h3>
+      </aside>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-sm-12">
+            <div>
+              <strong>Upon request</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
+  <script>
+    const resumeLink = document.querySelector('a.resume')
+    const backLink = document.querySelector('a.back-link')
+    const header = document.querySelector('#header')
+    const content = document.querySelector('#content')
+
+    resumeLink.addEventListener('click', e => {
+      e.preventDefault()
+      header.classList.add('collapsed')
+      content.classList.add('expanded')
+    })
+
+    backLink.addEventListener('click', e => {
+      e.preventDefault()
+      header.classList.remove('collapsed')
+      content.classList.remove('expanded')
+    })
+  </script>
 </body>
 </html>
