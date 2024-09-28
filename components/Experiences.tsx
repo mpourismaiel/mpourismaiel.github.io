@@ -21,10 +21,10 @@ export const Experiences = () => {
       <Tabs
         defaultValue={resume[0].company}
         orientation="vertical"
-        className="flex gap-4"
+        className="flex flex-col lg:flex-row gap-4"
       >
         <div className="flex flex-col">
-          <TabsList className="w-[300px] justify-start p-4">
+          <TabsList className="w-full lg:w-[300px] justify-start p-4">
             {resume.map(experience => (
               <TabsTrigger
                 key={`trigger-${experience.company}`}
