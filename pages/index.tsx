@@ -1,7 +1,7 @@
-import { Experiences } from "./_components/Experiences";
-import { Hero } from "./_components/Hero";
-import { Projects } from "./_components/Projects";
-import { Technologies } from "./_components/Technologies";
+import { Experiences } from "../components/Experiences";
+import { Hero } from "../components/Hero";
+import { Projects } from "../components/Projects";
+import { Technologies } from "../components/Technologies";
 import { DockDemo } from "@/components/Dock";
 import { Separator } from "@/components/ui/separator";
 
