@@ -90,10 +90,10 @@ const DATA = {
   },
 };
 
-export function DockDemo() {
+export function DockDemo({ className }: { className?: string }) {
   return (
     <TooltipProvider>
-      <Dock direction="middle">
+      <Dock direction="middle" className={className}>
         {DATA.navbar.map(item => (
           <DockIcon key={item.label}>
             <Tooltip>
