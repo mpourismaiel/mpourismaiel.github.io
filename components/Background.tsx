@@ -4,15 +4,21 @@ import {
   BufferGeometry,
   Color,
   DirectionalLight,
+  Mesh,
+  MeshBasicMaterial,
+  MeshLambertMaterial,
   PerspectiveCamera,
   Points,
   PointsMaterial,
   Scene,
+  SphereGeometry,
   TextureLoader,
   WebGLRenderer,
 } from "three";
+import { createInspector } from "three-inspect/vanilla";
 
 export const Background = () => {
+  const inspector = useRef<HTMLDivElement | null>(null);
   const mouseX = useRef<number>(0);
   const mouseY = useRef<number>(0);
   const scrollX = useRef<number>(0);
@@ -65,51 +71,68 @@ export const Background = () => {
     starsT1.current.position.x =
       mouseX.current * 0.0001 +
       scrollX.current * 0.0005 +
-      Math.cos(delta.current) * 0.01;
+      Math.cos(delta.current * 0.01) * 0.01;
     starsT1.current.position.y =
       mouseY.current * -0.0001 +
       scrollY.current * 0.0005 +
-      Math.sin(delta.current) * 0.01;
+      Math.sin(delta.current * 0.01) * 0.01;
 
     starsT2.current.position.x =
       mouseX.current * 0.0001 +
       scrollX.current * 0.0005 +
-      Math.cos(delta.current) * 0.01;
+      Math.cos(delta.current * 0.01) * 0.01;
     starsT2.current.position.y =
       mouseY.current * -0.0001 +
       scrollY.current * 0.0005 +
-      Math.sin(delta.current) * 0.01;
+      Math.sin(delta.current * 0.01) * 0.01;
 
-    // Re-render the scene
     renderer.current.render(scene.current, camera.current);
-    // loop
     requestAnimationFrame(render);
   }, []);
 
-  const setRef = useCallback((el: HTMLCanvasElement) => {
+  const setInspector = useCallback((el: HTMLDivElement) => {
+    inspector.current = el;
+    initInspector();
+  }, []);
+
+  const initInspector = useCallback(() => {
+    if (
+      !inspector.current ||
+      !scene.current ||
+      !camera.current ||
+      !renderer.current
+    )
+      return;
+
+    createInspector(inspector.current, {
+      scene: scene.current,
+      camera: camera.current,
+      renderer: renderer.current,
+    });
+  }, []);
+
+  const initScene = useCallback((el: HTMLCanvasElement) => {
     if (canvas.current) return;
     canvas.current = el;
     renderer.current = new WebGLRenderer({ canvas: canvas.current });
     renderer.current.setClearColor(new Color("#1c1624"));
     scene.current = new Scene();
 
-    // light source
     const color = 0xffffff;
     const intensity = 1;
     const light = new DirectionalLight(color, intensity);
     light.position.set(-1, 2, 4);
     scene.current.add(light);
 
-    // camera
     const fov = 75,
       aspect = 2,
       near = 1.5,
-      far = 5;
+      far = 50;
     camera.current = new PerspectiveCamera(fov, aspect, near, far);
     camera.current.position.z = 2;
 
+    const loader = new TextureLoader();
     const geometrys = [new BufferGeometry(), new BufferGeometry()];
-
     geometrys[0].setAttribute(
       "position",
       new BufferAttribute(getRandomParticelPos(15000), 3),
@@ -119,29 +142,24 @@ export const Background = () => {
       new BufferAttribute(getRandomParticelPos(15000), 3),
     );
 
-    const loader = new TextureLoader();
     const materials = [
       new PointsMaterial({
         size: 0.01,
-        map: loader.load(
-          "https://raw.githubusercontent.com/Kuntal-Das/textures/main/sp1.png",
-        ),
+        map: loader.load("/sp1.png"),
         transparent: true,
         color: "#aaa",
       }),
       new PointsMaterial({
         size: 0.0075,
-        map: loader.load(
-          "https://raw.githubusercontent.com/Kuntal-Das/textures/main/sp2.png",
-        ),
+        map: loader.load("/sp2.png"),
         transparent: true,
       }),
     ];
 
     starsT1.current = new Points(geometrys[0], materials[0]);
     starsT2.current = new Points(geometrys[1], materials[1]);
-    scene.current.add(starsT1.current);
-    scene.current.add(starsT2.current);
+
+    initInspector();
     requestAnimationFrame(render);
   }, []);
 
@@ -159,7 +177,7 @@ export const Background = () => {
     document.addEventListener("mousemove", mouseMoveHandler);
     document.addEventListener("scroll", scrollHandler);
     const timer = setInterval(() => {
-      delta.current += 0.01;
+      delta.current += 1;
     }, 1000 / 60);
 
     return () => {
@@ -171,7 +189,8 @@ export const Background = () => {
 
   return (
     <div className="fixed z-0 w-screen h-screen top-0 left-0">
-      <canvas className="w-full h-full" ref={setRef} />
+      <canvas className="w-full h-full" ref={initScene} />
+      <div className="z-20" ref={setInspector}></div>
     </div>
   );
 };
