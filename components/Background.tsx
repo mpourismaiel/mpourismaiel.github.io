@@ -1,94 +1,33 @@
 import { useCallback, useEffect, useRef } from "react";
 import {
-  BufferAttribute,
+  AdditiveBlending,
   BufferGeometry,
-  Color,
-  DirectionalLight,
-  Mesh,
-  MeshBasicMaterial,
-  MeshLambertMaterial,
+  Float32BufferAttribute,
+  FogExp2,
   PerspectiveCamera,
   Points,
   PointsMaterial,
+  SRGBColorSpace,
   Scene,
-  SphereGeometry,
+  Texture,
   TextureLoader,
   WebGLRenderer,
 } from "three";
 import { createInspector } from "three-inspect/vanilla";
 
 export const Background = () => {
-  const inspector = useRef<HTMLDivElement | null>(null);
+  const inspector = useRef<HTMLDivElement>();
+  const camera = useRef<PerspectiveCamera>();
+  const scene = useRef<Scene>();
+  const renderer = useRef<WebGLRenderer>();
+  const parameters =
+    useRef<{ color: number[]; texture: Texture; size: number }[]>();
+  const materials = useRef<PointsMaterial[]>([]);
   const mouseX = useRef<number>(0);
   const mouseY = useRef<number>(0);
-  const scrollX = useRef<number>(0);
-  const scrollY = useRef<number>(0);
-  const canvas = useRef<HTMLCanvasElement | null>(null);
-  const camera = useRef<PerspectiveCamera | null>(null);
-  const renderer = useRef<WebGLRenderer | null>(null);
-  const starsT1 = useRef<Points | null>(null);
-  const starsT2 = useRef<Points | null>(null);
-  const scene = useRef<Scene | null>(null);
-  const delta = useRef<number>(0);
 
-  const getRandomParticelPos = useCallback((particleCount: number) => {
-    const arr = new Float32Array(particleCount * 3);
-    for (let i = 0; i < particleCount; i++) {
-      arr[i] = (Math.random() - 0.5) * 10;
-    }
-    return arr;
-  }, []);
-
-  const resizeRendererToDisplaySize = useCallback((renderer: WebGLRenderer) => {
-    const canvas = renderer.domElement;
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
-    const needResize = canvas.width !== width || canvas.height !== height;
-
-    if (needResize) {
-      renderer.setSize(width, height, false);
-    }
-    return needResize;
-  }, []);
-
-  const render = useCallback(() => {
-    if (
-      !renderer.current ||
-      !scene.current ||
-      !camera.current ||
-      !starsT1.current ||
-      !starsT2.current
-    )
-      return;
-
-    if (resizeRendererToDisplaySize(renderer.current)) {
-      const canvas = renderer.current.domElement;
-      // changing the camera aspect to remove the strechy problem
-      camera.current.aspect = canvas.clientWidth / canvas.clientHeight;
-      camera.current.updateProjectionMatrix();
-    }
-
-    starsT1.current.position.x =
-      mouseX.current * 0.0001 +
-      scrollX.current * 0.0005 +
-      Math.cos(delta.current * 0.01) * 0.01;
-    starsT1.current.position.y =
-      mouseY.current * -0.0001 +
-      scrollY.current * 0.0005 +
-      Math.sin(delta.current * 0.01) * 0.01;
-
-    starsT2.current.position.x =
-      mouseX.current * 0.0001 +
-      scrollX.current * 0.0005 +
-      Math.cos(delta.current * 0.01) * 0.01;
-    starsT2.current.position.y =
-      mouseY.current * -0.0001 +
-      scrollY.current * 0.0005 +
-      Math.sin(delta.current * 0.01) * 0.01;
-
-    renderer.current.render(scene.current, camera.current);
-    requestAnimationFrame(render);
-  }, []);
+  const windowHalfX = useRef<number>(0);
+  const windowHalfY = useRef<number>(0);
 
   const setInspector = useCallback((el: HTMLDivElement) => {
     inspector.current = el;
@@ -97,6 +36,7 @@ export const Background = () => {
 
   const initInspector = useCallback(() => {
     if (
+      process.env.NODE_ENV !== "development" ||
       !inspector.current ||
       !scene.current ||
       !camera.current ||
@@ -112,78 +52,119 @@ export const Background = () => {
   }, []);
 
   const initScene = useCallback((el: HTMLCanvasElement) => {
-    if (canvas.current) return;
-    canvas.current = el;
-    renderer.current = new WebGLRenderer({ canvas: canvas.current });
-    renderer.current.setClearColor(new Color("#1c1624"));
+    if (renderer.current) return;
+
+    camera.current = new PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      1,
+      2000,
+    );
+    camera.current.position.z = 1000;
+
     scene.current = new Scene();
+    scene.current.fog = new FogExp2(0x000000, 0.0008);
 
-    const color = 0xffffff;
-    const intensity = 1;
-    const light = new DirectionalLight(color, intensity);
-    light.position.set(-1, 2, 4);
-    scene.current.add(light);
+    const vertices = [];
+    for (let i = 0; i < 10000; i++) {
+      const x = Math.random() * 2000 - 1000;
+      const y = Math.random() * 2000 - 1000;
+      const z = Math.random() * 2000 - 1000;
+      vertices.push(x, y, z);
+    }
 
-    const fov = 75,
-      aspect = 2,
-      near = 1.5,
-      far = 50;
-    camera.current = new PerspectiveCamera(fov, aspect, near, far);
-    camera.current.position.z = 2;
+    const geometry = new BufferGeometry();
+    geometry.setAttribute("position", new Float32BufferAttribute(vertices, 3));
 
-    const loader = new TextureLoader();
-    const geometrys = [new BufferGeometry(), new BufferGeometry()];
-    geometrys[0].setAttribute(
-      "position",
-      new BufferAttribute(getRandomParticelPos(15000), 3),
-    );
-    geometrys[1].setAttribute(
-      "position",
-      new BufferAttribute(getRandomParticelPos(15000), 3),
-    );
-
-    const materials = [
-      new PointsMaterial({
-        size: 0.01,
-        map: loader.load("/sp1.png"),
-        transparent: true,
-        color: "#aaa",
-      }),
-      new PointsMaterial({
-        size: 0.0075,
-        map: loader.load("/sp2.png"),
-        transparent: true,
-      }),
+    const textureLoader = new TextureLoader();
+    const sprite1 = textureLoader.load("/sp1.png");
+    const sprite2 = textureLoader.load("/sp2.png");
+    parameters.current = [
+      { color: [1.0, 1.0, 1.0], texture: sprite1, size: 1 },
+      { color: [0.5, 0.5, 0.5], texture: sprite2, size: 0.5 },
     ];
 
-    starsT1.current = new Points(geometrys[0], materials[0]);
-    starsT2.current = new Points(geometrys[1], materials[1]);
+    for (let i = 0; i < parameters.current.length; i++) {
+      const color = parameters.current[i].color;
+      const sprite = parameters.current[i].texture;
+      const size = parameters.current[i].size;
+      materials.current[i] = new PointsMaterial({
+        size: size,
+        map: sprite,
+        blending: AdditiveBlending,
+        depthTest: false,
+        transparent: true,
+      });
+      materials.current[i].color.setHSL(
+        color[0],
+        color[1],
+        color[2],
+        SRGBColorSpace,
+      );
 
+      const particles = new Points(geometry, materials.current[i]);
+      particles.rotation.x = Math.random() * 6;
+      particles.rotation.y = Math.random() * 6;
+      particles.rotation.z = Math.random() * 6;
+
+      scene.current.add(particles);
+    }
+
+    renderer.current = new WebGLRenderer({
+      canvas: el,
+    });
+    renderer.current.setPixelRatio(window.devicePixelRatio);
+    renderer.current.setSize(window.innerWidth, window.innerHeight);
+    renderer.current.setAnimationLoop(render);
     initInspector();
-    requestAnimationFrame(render);
+  }, []);
+
+  const render = useCallback(() => {
+    if (
+      !camera.current ||
+      !scene.current ||
+      !renderer.current ||
+      !parameters.current
+    )
+      return;
+
+    const time = Date.now() * 0.00005;
+
+    camera.current.position.x +=
+      (mouseX.current - camera.current.position.x) * 0.05;
+    camera.current.position.y +=
+      (-mouseY.current - camera.current.position.y) * 0.05;
+
+    camera.current.lookAt(scene.current.position);
+
+    for (let i = 0; i < scene.current.children.length; i++) {
+      const object = scene.current.children[i];
+      if (object instanceof Points) {
+        object.rotation.y = time * (i < 4 ? i + 1 : -i - 1) * 0.5;
+      }
+    }
+
+    renderer.current.render(scene.current, camera.current);
   }, []);
 
   useEffect(() => {
-    const mouseMoveHandler = (e: MouseEvent) => {
-      mouseX.current = e.clientX - window.innerWidth / 2;
-      mouseY.current = e.clientY - window.innerHeight / 2;
-    };
+    windowHalfX.current = window.innerWidth / 2;
+    windowHalfY.current = window.innerHeight / 2;
 
-    const scrollHandler = (e: Event) => {
-      scrollX.current = window.scrollX;
-      scrollY.current = window.scrollY;
-    };
+    function onWindowResize() {
+      if (!camera.current || !renderer.current) return;
 
-    document.addEventListener("mousemove", mouseMoveHandler);
-    document.addEventListener("scroll", scrollHandler);
-    const timer = setInterval(() => {
-      delta.current += 1;
-    }, 1000 / 60);
+      windowHalfX.current = window.innerWidth / 2;
+      windowHalfY.current = window.innerHeight / 2;
+      camera.current.aspect = window.innerWidth / window.innerHeight;
+      camera.current.updateProjectionMatrix();
+      renderer.current.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    window.addEventListener("resize", onWindowResize);
 
     return () => {
-      document.removeEventListener("mousemove", mouseMoveHandler);
-      document.removeEventListener("scroll", scrollHandler);
-      clearInterval(timer);
+      window.removeEventListener("resize", onWindowResize);
     };
   }, []);
 
