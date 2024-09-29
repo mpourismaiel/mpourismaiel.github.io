@@ -127,6 +127,7 @@ export const Background = () => {
           "https://raw.githubusercontent.com/Kuntal-Das/textures/main/sp1.png",
         ),
         transparent: true,
+        color: "#aaa",
       }),
       new PointsMaterial({
         size: 0.0075,
