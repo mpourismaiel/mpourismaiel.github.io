@@ -131,11 +131,11 @@ export const Background = () => {
       return;
 
     const time = Date.now() * 0.000008;
-
+    const speed = (1000 / windowHalfX.current) * 1.2;
     for (let i = 0; i < scene.current.children.length; i++) {
       const object = scene.current.children[i];
       if (object instanceof Points) {
-        object.rotation.y = time * (i === 0 ? 1 : -1);
+        object.rotation.y = time * (i === 0 ? speed : -speed);
       }
     }
 
