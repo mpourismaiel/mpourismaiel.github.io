@@ -24,14 +24,14 @@ export const Projects = () => {
         {projects.map(project => (
           <Card
             key={`project-${project.title}`}
-            className="supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 bg-black/10 backdrop-blur-sm shadow-md"
+            className="flex flex-col supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 bg-black/10 backdrop-blur-sm shadow-md"
           >
             <CardHeader>
               <CardTitle className="text-lg font-bold">
                 {project.title}
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-base">
+            <CardContent className="text-base flex-1">
               <p>{project.description}</p>
             </CardContent>
             <CardFooter>
@@ -43,7 +43,11 @@ export const Projects = () => {
                   <Fragment
                     key={`project-${project.title}-technology-${technology}`}
                   >
-                    <Link href={technologies[technology].href} target="_blank">
+                    <Link
+                      href={technologies[technology].href}
+                      target="_blank"
+                      className="text-accent-foreground/50 hover:text-accent-foreground transition-colors duration-500 ease-out"
+                    >
                       {technology}
                     </Link>
                     {index !== project.technologies.length - 1 && ", "}

@@ -12,11 +12,23 @@ export type ProjectType = {
 
 export const projects: ProjectType[] = [
   {
-    title: "Ainur HQ Landing Page",
+    title: "Ainur Landing Page",
     description:
-      "Ainur HQ is a web development agency that focuses on creating and developing advanced web applications. The landing page was designed to showcase the services and projects that Ainur HQ has worked on.",
+      "Ainur is a web development agency that focuses on creating and developing advanced web applications. The landing page was designed to showcase the services and projects that Ainur HQ has worked on.",
     href: "https://ainurhq.cloud/",
     technologies: ["Next.JS", "TailwindCSS", "Shadcn", "MagicUI"],
+  },
+  {
+    title: "Mjolnir",
+    description: (
+      <>
+        Mjolnir is developed as an in-house Ainur project. It is a decentralized
+        video platform that allows users to upload to their own IPFS node or use
+        the Mjolnir IPFS node. The platform is built with privacy in mind and
+        does not track users.
+      </>
+    ),
+    technologies: ["Svelte", "Adonis", "TailwindCSS"],
   },
   {
     title: "Rice Your Ride",
