@@ -40,6 +40,8 @@ const Technology = ({
   title: keyof typeof technologies;
   description?: ReactNode;
 }) => {
+  const Icon = technologies[title].icon as React.ElementType;
+
   return (
     <Tooltip>
       <TooltipTrigger>
@@ -48,7 +50,7 @@ const Technology = ({
           target="_blank"
           className="w-14 h-14 p-2 rounded flex items-center justify-center"
         >
-          {technologies[title].icon}
+          <Icon />
         </Link>
       </TooltipTrigger>
       <TooltipContent>
