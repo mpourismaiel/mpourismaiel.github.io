@@ -63,11 +63,11 @@ export const Experiences = () => {
         className="flex flex-col lg:flex-row gap-4"
       >
         <div className="flex flex-col">
-          <TabsList className="relative w-full lg:w-[300px] justify-start p-4">
+          <TabsList className="relative w-full lg:w-[300px] justify-start p-4 border supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 bg-black/10 backdrop-blur-sm shadow-md">
             <motion.div
               animate={activeTabData}
               transition={{ type: "just" }}
-              className="absolute z-0 bg-background rounded-md"
+              className="absolute z-0 supports-backdrop-blur:bg-white/30 supports-backdrop-blur:dark:bg-black/30 bg-black/30 backdrop-blur-sm shadow-md rounded-md"
             />
             {resume.map(experience => (
               <TabsTrigger
@@ -79,7 +79,7 @@ export const Experiences = () => {
                 <h5 className="text-secondary-foreground">
                   {experience.company}
                 </h5>
-                <h6 className="text-xs transition-colors">
+                <h6 className="text-xs transition-colors duration-500 ease-out">
                   <time>{experience.startDate}</time>
                   {" - "}
                   <time>{experience.endDate}</time>
@@ -94,7 +94,7 @@ export const Experiences = () => {
             className="flex-1"
             key={`content-${experience.company}`}
           >
-            <Card className="bg-secondary">
+            <Card className="supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 bg-black/10 backdrop-blur-sm shadow-md">
               <CardHeader>
                 <CardTitle className="text-2xl">{experience.company}</CardTitle>
                 <CardDescription>{experience.title}</CardDescription>

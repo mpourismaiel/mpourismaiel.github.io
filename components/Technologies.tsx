@@ -20,7 +20,7 @@ const Section = ({
   children: React.ReactNode;
 }) => {
   return (
-    <Card className="bg-secondary">
+    <Card className="supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 bg-black/10 backdrop-blur-sm shadow-md">
       <CardHeader>
         <CardTitle className="text-xl font-bold text-secondary-foreground text-center">
           {title}

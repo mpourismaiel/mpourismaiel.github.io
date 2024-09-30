@@ -37,6 +37,7 @@ export const Background = () => {
   const initInspector = useCallback(() => {
     if (
       process.env.NODE_ENV !== "development" ||
+      process.env.NEXT_PUBLIC_DISABLE_INSPECTOR === "true" ||
       !inspector.current ||
       !scene.current ||
       !camera.current ||
@@ -68,6 +69,7 @@ export const Background = () => {
     camera.current.position.z = 1000;
 
     scene.current = new Scene();
+    scene.current.background = new Color(0x1c1624);
     scene.current.fog = new FogExp2(0x000000, 0.0008);
 
     const vertices = [];

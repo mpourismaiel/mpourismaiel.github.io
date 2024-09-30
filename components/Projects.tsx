@@ -1,5 +1,6 @@
 import { LayoutDashboardIcon } from "lucide-react";
 import Link from "next/link";
+import { Fragment } from "react";
 
 import { TitleWithIcon } from "./TitleWithIcon";
 import {
@@ -21,7 +22,10 @@ export const Projects = () => {
       </TitleWithIcon>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
         {projects.map(project => (
-          <Card key={`project-${project.title}`}>
+          <Card
+            key={`project-${project.title}`}
+            className="supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 bg-black/10 backdrop-blur-sm shadow-md"
+          >
             <CardHeader>
               <CardTitle className="text-lg font-bold">
                 {project.title}
@@ -36,16 +40,14 @@ export const Projects = () => {
                   Technologies:
                 </strong>{" "}
                 {project.technologies.map((technology, index) => (
-                  <>
-                    <Link
-                      href={technologies[technology].href}
-                      target="_blank"
-                      key={`project-${project.title}-technology-${technology}`}
-                    >
+                  <Fragment
+                    key={`project-${project.title}-technology-${technology}`}
+                  >
+                    <Link href={technologies[technology].href} target="_blank">
                       {technology}
                     </Link>
                     {index !== project.technologies.length - 1 && ", "}
-                  </>
+                  </Fragment>
                 ))}
               </p>
             </CardFooter>

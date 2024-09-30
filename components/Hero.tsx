@@ -2,7 +2,7 @@ export const Hero = () => {
   return (
     <div className="min-h-[100dvh] flex justify-center items-center">
       <div className="text-center flex flex-col justify-center">
-        <h1 className="text-[40px] sm:text-[48px] lg:text-[78px] font-bold text-secondary-foreground">
+        <h1 className="text-[32px] sm:text-[48px] lg:text-[78px] font-bold text-secondary-foreground">
           Mahdi Pourismaiel
         </h1>
         <h2 className="text-lg lg:text-[26px] font-bold mb-2 md:mb-4 text-secondary-foreground">
