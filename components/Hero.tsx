@@ -11,8 +11,8 @@ export const Hero = () => {
         <div className="relative mt-4">
           <div className="absolute top-0 left-[12.5%] bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
           <div className="absolute top-0 left-[12.5%] bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+          <div className="absolute top-0 left-[12.5%] animate-shooting h-[5px] w-3/4 blur-sm" />
+          <div className="absolute top-0 left-[12.5%] animate-shooting h-px w-3/4" />
         </div>
       </div>
     </div>

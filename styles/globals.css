@@ -72,3 +72,24 @@
     @apply bg-background text-foreground;
   }
 }
+
+.animate-shooting {
+  animation: shooting 60s infinite linear;
+  background-image: linear-gradient(
+    to right,
+    rgb(99 102 241 / 0) 0%,
+    #6366f1 5%,
+    rgb(99 102 241 / 0) 10%
+  );
+  background-size: 1000%;
+  background-position: 0%;
+}
+
+@keyframes shooting {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: -1000%;
+  }
+}
