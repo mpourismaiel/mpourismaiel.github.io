@@ -26,8 +26,8 @@ export const Background = () => {
     useRef<{ color: number[]; texture: Texture; size: number }[]>();
   const materials = useRef<PointsMaterial[]>([]);
 
-  const windowHalfX = useRef<number>(0);
-  const windowHalfY = useRef<number>(0);
+  const windowSize = useRef<{ h: number; w: number }>({ h: 0, w: 0 });
+  const offset = useRef<number>(0);
 
   const setInspector = useCallback((el: HTMLDivElement) => {
     inspector.current = el;
@@ -73,7 +73,11 @@ export const Background = () => {
     scene.current.fog = new FogExp2(0x000000, 0.0008);
 
     const vertices = [];
-    for (let i = 0; i < (windowHalfX.current * windowHalfY.current) / 60; i++) {
+    for (
+      let i = 0;
+      i < (windowSize.current.w * windowSize.current.h) / 60;
+      i++
+    ) {
       const x = Math.random() * 2000 - 1000;
       const y = Math.random() * 2000 - 1000;
       const z = Math.random() * 2000 - 1000;
@@ -85,7 +89,7 @@ export const Background = () => {
     const textureLoader = new TextureLoader();
     const sprite1 = textureLoader.load("/sp1.png");
     const sprite2 = textureLoader.load("/sp2.png");
-    const maxSize = (1000 / windowHalfX.current) * 1.5;
+    const maxSize = (1000 / windowSize.current.w) * 1.5;
     parameters.current = [
       { color: [1.0, 1.0, 1.0], texture: sprite1, size: maxSize },
       { color: [0.5, 0.5, 0.5], texture: sprite2, size: maxSize / 2 },
@@ -133,11 +137,13 @@ export const Background = () => {
       return;
 
     const time = Date.now() * 0.000008;
-    const speed = (1000 / windowHalfX.current) * 1.2;
-    for (let i = 0; i < scene.current.children.length; i++) {
+    const speed = (1000 / windowSize.current.w) * 1.2;
+    for (let i = 0, j = 0; i < scene.current.children.length; i++) {
       const object = scene.current.children[i];
       if (object instanceof Points) {
+        j++;
         object.rotation.y = time * (i === 0 ? speed : -speed);
+        object.position.y = (offset.current / 20) * j;
       }
     }
 
@@ -145,24 +151,30 @@ export const Background = () => {
   }, []);
 
   useEffect(() => {
-    windowHalfX.current = window.innerWidth / 2;
-    windowHalfY.current = window.innerHeight / 2;
+    windowSize.current.w = window.innerWidth / 2;
+    windowSize.current.h = window.innerHeight / 2;
 
     function onWindowResize() {
       if (!camera.current || !renderer.current) return;
 
-      windowHalfX.current = window.innerWidth / 2;
-      windowHalfY.current = window.innerHeight / 2;
+      windowSize.current.w = window.innerWidth / 2;
+      windowSize.current.h = window.innerHeight / 2;
       camera.current.aspect = window.innerWidth / window.innerHeight;
       camera.current.updateProjectionMatrix();
       renderer.current.setSize(window.innerWidth, window.innerHeight);
     }
 
+    function onScroll() {
+      offset.current = window.scrollY;
+    }
+
     window.addEventListener("resize", onWindowResize);
+    window.addEventListener("scroll", onScroll);
     initScene();
 
     return () => {
       window.removeEventListener("resize", onWindowResize);
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
