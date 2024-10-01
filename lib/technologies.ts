@@ -31,7 +31,13 @@ import { TailwindCSSIcon } from "@/components/icons/TailwindCSSIcon";
 import { TypescriptIcon } from "@/components/icons/TypescriptIcon";
 import { VueIcon } from "@/components/icons/VueIcon";
 
-export const technologies = {
+export const technologies: Record<
+  string,
+  {
+    icon?: React.ElementType;
+    href: string;
+  }
+> = {
   "Typescript": {
     icon: TypescriptIcon,
     href: "https://www.typescriptlang.org/",
@@ -81,5 +87,5 @@ export const technologies = {
   "Docker": { icon: DockerIcon, href: "https://www.docker.com/" },
   "Linux": { icon: LinuxIcon, href: "https://www.linux.org" },
   "Godot": { icon: GodotIcon, href: "https://godotengine.org/" },
-  "MagicUI": { icon: null, href: "https://magicui.design" },
+  "MagicUI": { href: "https://magicui.design" },
 };
