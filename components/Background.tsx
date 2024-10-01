@@ -75,7 +75,7 @@ export const Background = () => {
     const vertices = [];
     for (
       let i = 0;
-      i < (windowSize.current.w * windowSize.current.h) / 60;
+      i < (windowSize.current.w * windowSize.current.h) / 120;
       i++
     ) {
       const x = Math.random() * 2000 - 1000;
@@ -89,7 +89,7 @@ export const Background = () => {
     const textureLoader = new TextureLoader();
     const sprite1 = textureLoader.load("/sp1.png");
     const sprite2 = textureLoader.load("/sp2.png");
-    const maxSize = (1000 / windowSize.current.w) * 1.5;
+    const maxSize = 1000 / windowSize.current.w;
     parameters.current = [
       { color: [1.0, 1.0, 1.0], texture: sprite1, size: maxSize },
       { color: [0.5, 0.5, 0.5], texture: sprite2, size: maxSize / 2 },
