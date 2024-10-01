@@ -49,10 +49,17 @@ export const technologies = {
   "Vue": { icon: VueIcon, href: "https://vuejs.org/" },
   "Svelte": { icon: SvelteIcon, href: "https://svelte.dev/" },
   "Next.JS": { icon: NextJsIcon, href: "https://nextjs.org/" },
+  "Gatsby.JS": { href: "gatsbyjs.com" },
   "Nuxt.JS": { icon: NuxtJsIcon, href: "https://nuxt.com/" },
   "TailwindCSS": {
     icon: TailwindCSSIcon,
     href: "https://tailwindcss.com/",
+  },
+  "Bootstrap": {
+    href: "https://getbootstrap.com/",
+  },
+  "Hugo": {
+    href: "https://gohugo.io/",
   },
   "Shadcn": { icon: ShadcnIcon, href: "https://ui.shadcn.com/" },
   "Prisma": { icon: PrismaIcon, href: "https://www.prisma.io/" },

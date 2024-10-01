@@ -50,4 +50,31 @@ export const projects: ProjectType[] = [
     href: "https://riceyourride.com/",
     technologies: ["Next.JS", "TailwindCSS", "Shadcn"],
   },
+  {
+    title: "AxPrint",
+    description: (
+      <>
+        AxPrint is a photography and printing studio that offers customizable
+        printing and framing services. They required a new web application that
+        would allow users to use previouly designed templates to create their
+        own custom prints.
+      </>
+    ),
+    href: "https://axprint.com/",
+    technologies: ["Gatsby.JS", "Apollo", "Typescript"],
+  },
+  {
+    title: "Syna",
+    description: (
+      <>
+        While working at Okkur Labs we created a theme for Hugo static site
+        generator. The theme is designed to be customizable and extendable with
+        a variety of configurable components. Syna also allows integrating
+        payment services such as Stripe and can integrate different front-end
+        frameworks such as React.
+      </>
+    ),
+    href: "https://about.okkur.org/syna/",
+    technologies: ["Hugo", "Bootstrap", "Golang", "Javascript"],
+  },
 ];
