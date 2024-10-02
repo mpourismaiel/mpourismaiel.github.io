@@ -1,4 +1,4 @@
-import { LayoutDashboardIcon } from "lucide-react";
+import { ExternalLinkIcon, LayoutDashboardIcon } from "lucide-react";
 import Link from "next/link";
 import { Fragment } from "react";
 
@@ -27,15 +27,18 @@ export const Projects = () => {
             className="flex flex-col supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 bg-black/10 backdrop-blur-sm shadow-md"
           >
             <CardHeader>
-              <CardTitle className="text-lg font-bold">
-                {project.title}
-              </CardTitle>
+              <Link href={project.href}>
+                <CardTitle className="text-lg font-bold flex items-center gap-2">
+                  {project.title}
+                  <ExternalLinkIcon className="h-4 w-4" />
+                </CardTitle>
+              </Link>
             </CardHeader>
             <CardContent className="text-base flex-1">
               <p>{project.description}</p>
             </CardContent>
             <CardFooter>
-              <p className="text-muted-foreground">
+              <p className="text-secondary-foreground">
                 <strong className="text-secondary-foreground">
                   Technologies:
                 </strong>{" "}
@@ -43,11 +46,7 @@ export const Projects = () => {
                   <Fragment
                     key={`project-${project.title}-technology-${technology}`}
                   >
-                    <Link
-                      href={technologies[technology].href}
-                      target="_blank"
-                      className="text-accent-foreground/50 hover:text-accent-foreground transition-colors duration-500 ease-out"
-                    >
+                    <Link href={technologies[technology].href} target="_blank">
                       {technology}
                     </Link>
                     {index !== project.technologies.length - 1 && ", "}

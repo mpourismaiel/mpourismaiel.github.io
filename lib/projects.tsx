@@ -6,7 +6,7 @@ import { technologies } from "./technologies";
 export type ProjectType = {
   title: string;
   description: ReactNode;
-  href?: string;
+  href: string;
   technologies: (keyof typeof technologies)[];
 };
 
@@ -28,6 +28,7 @@ export const projects: ProjectType[] = [
         does not track users.
       </>
     ),
+    href: "https://www.mjolnir.tv/",
     technologies: ["Svelte", "Adonis", "TailwindCSS"],
   },
   {
