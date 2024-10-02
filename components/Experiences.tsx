@@ -11,6 +11,7 @@ import {
   useState,
 } from "react";
 
+import { Technology } from "./Technologies";
 import { TitleWithIcon } from "./TitleWithIcon";
 import {
   Card,
@@ -98,6 +99,9 @@ export const Experiences = () => {
               <CardHeader>
                 <CardTitle className="text-2xl">{experience.company}</CardTitle>
                 <CardDescription>{experience.title}</CardDescription>
+                <CardDescription className="text-xs text-muted-foreground/50">
+                  {`${experience.startDate} - ${experience.endDate}`}
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 {experience.description.map((paragraph, index) => (
@@ -109,13 +113,25 @@ export const Experiences = () => {
                   </p>
                 ))}
                 {experience.achievements.length > 0 ? (
-                  <ul className="text-secondary-foreground/50 text-base list-disc list-inside">
+                  <ul className="text-secondary-foreground text-base list-disc list-inside">
                     {experience.achievements.map((achievement, index) => (
                       <li key={`${experience.company}-achievement-${index}`}>
                         {achievement}
                       </li>
                     ))}
                   </ul>
+                ) : null}
+                {experience.technologies &&
+                experience.technologies.length > 0 ? (
+                  <div className="flex flex-wrap gap-1 mt-4">
+                    {experience.technologies.map(technology => (
+                      <Technology
+                        key={technology}
+                        title={technology}
+                        className="w-10 h-10"
+                      />
+                    ))}
+                  </div>
                 ) : null}
               </CardContent>
             </Card>
