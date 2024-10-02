@@ -1,3 +1,5 @@
+import { NextSeo } from "next-seo";
+
 import { Background } from "@/components/Background";
 import { Experiences } from "@/components/Experiences";
 import { Footer } from "@/components/Footer";
@@ -13,6 +15,10 @@ const queryClient = new QueryClient();
 export default function Home() {
   return (
     <QueryClientProvider client={queryClient}>
+      <NextSeo
+        title="Mahdi Pourismaiel"
+        description="Portfolio of Mahdi Pourismaiel, Front-End Developer."
+      />
       <div className="flex justify-center px-4 lg:px-0 mb-32">
         <Background />
         <main className="flex w-full max-w-full flex-col lg:max-w-[1000px] xl:max-w-screen-lg 2xl:max-w-screen-2xl gap-8 z-10">
