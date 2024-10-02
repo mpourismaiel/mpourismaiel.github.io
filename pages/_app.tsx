@@ -1,14 +1,14 @@
 import type { AppProps } from "next/app";
-import { Lexend, Oxygen_Mono } from "next/font/google";
+import { Montserrat, Oxygen_Mono } from "next/font/google";
 
 import "@/styles/globals.css";
 
-const lexend = Lexend({
+const sansFont = Montserrat({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-const novaMono = Oxygen_Mono({
+const monoFont = Oxygen_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   weight: ["400"],
@@ -16,7 +16,7 @@ const novaMono = Oxygen_Mono({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${lexend.variable} ${novaMono.variable} font-sans`}>
+    <div className={`${sansFont.variable} ${monoFont.variable} font-sans`}>
       <Component {...pageProps} />
     </div>
   );
