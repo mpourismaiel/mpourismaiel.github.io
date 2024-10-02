@@ -4,6 +4,8 @@ import {
   SiAdonisjsHex,
   SiApollographql,
   SiApollographqlHex,
+  SiBootstrap,
+  SiBootstrapHex,
   SiCplusplus,
   SiCplusplusHex,
   SiDjango,
@@ -24,6 +26,8 @@ import {
   SiGoHex,
   SiGodotengine,
   SiGodotengineHex,
+  SiHugo,
+  SiHugoHex,
   SiJavascript,
   SiJavascriptHex,
   SiLinux,
@@ -56,6 +60,8 @@ import {
   SiTailwindcssHex,
   SiTypescript,
   SiTypescriptHex,
+  SiVscodium,
+  SiVscodiumHex,
   SiVuedotjs,
   SiVuedotjsHex,
 } from "@icons-pack/react-simple-icons";
@@ -154,9 +160,11 @@ export const technologies: Record<
     href: "https://tailwindcss.com/",
   },
   "Bootstrap": {
+    icon: <SiBootstrap color={SiBootstrapHex} size="56px" />,
     href: "https://getbootstrap.com/",
   },
   "Hugo": {
+    icon: <SiHugo color={SiHugoHex} size="56px" />,
     href: "https://gohugo.io/",
   },
   "Shadcn": {
@@ -227,5 +235,7 @@ export const technologies: Record<
     icon: <SiGodotengine color={SiGodotengineHex} size="56px" />,
     href: "https://godotengine.org/",
   },
-  "MagicUI": { href: "https://magicui.design" },
+  "MagicUI": {
+    href: "https://magicui.design",
+  },
 };

@@ -84,7 +84,7 @@ export const resume: ResumeExperienceType[] = [
       "Created multiple new Syna components",
       "Implemented features to allow much more customization",
     ],
-    technologies: ["React", "Typescript"],
+    technologies: ["Hugo", "Golang", "React", "Typescript", "Bootstrap"],
   },
   {
     title: "Front-End Developer",
