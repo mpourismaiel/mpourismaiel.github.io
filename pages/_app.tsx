@@ -18,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={`${sansFont.variable} ${monoFont.variable} font-sans`}>
       <Component {...pageProps} />
+      <div id="tooltip"></div>
     </div>
   );
 }

@@ -11,6 +11,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { urls } from "@/lib/urls";
 import { cn } from "@/lib/utils";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
@@ -60,37 +61,34 @@ const Icons = {
 };
 
 const DATA = {
-  navbar: [
-    { href: "#", icon: HomeIcon, label: "Home" },
-    { href: "#", icon: PencilIcon, label: "Blog" },
-  ],
+  navbar: [{ href: "/", icon: HomeIcon, label: "Home" }],
   contact: {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "#",
+        url: urls.github,
         icon: Icons.github,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "#",
+        url: urls.linkedin,
         icon: Icons.linkedin,
       },
       X: {
         name: "X",
-        url: "#",
+        url: urls.twitter,
         icon: Icons.x,
       },
       email: {
         name: "Send Email",
-        url: "#",
+        url: urls.email,
         icon: Icons.email,
       },
     },
   },
 };
 
-export function DockDemo({ className }: { className?: string }) {
+export const Navigation = ({ className }: { className?: string }) => {
   return (
     <TooltipProvider>
       <Dock direction="middle" className={className}>
@@ -103,7 +101,7 @@ export function DockDemo({ className }: { className?: string }) {
                   aria-label={item.label}
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12 rounded-full",
+                    "size-12 rounded-full hover:bg-accent/50",
                   )}
                 >
                   <item.icon className="size-4" />
@@ -123,9 +121,10 @@ export function DockDemo({ className }: { className?: string }) {
                 <Link
                   href={social.url}
                   aria-label={social.name}
+                  target="_blank"
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12 rounded-full",
+                    "size-12 rounded-full hover:bg-accent/50 hover:backdrop-blur-md",
                   )}
                 >
                   <social.icon className="size-4" />
@@ -140,4 +139,4 @@ export function DockDemo({ className }: { className?: string }) {
       </Dock>
     </TooltipProvider>
   );
-}
+};
