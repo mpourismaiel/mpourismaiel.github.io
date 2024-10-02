@@ -7,7 +7,7 @@ import { urls } from "@/lib/urls";
 export const Footer = () => {
   return (
     <div className="flex flex-col">
-      <div className="flex justify-between">
+      <div className="flex flex-col md:flex-row justify-between">
         <div className="flex items-center">
           <p className="me-1">{`© ${new Date().getFullYear()} • Mahdi Pourismaiel •`}</p>
           <Link href={urls.repo} target="_blank">
