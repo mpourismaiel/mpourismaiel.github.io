@@ -95,13 +95,13 @@ export const Github = () => {
         ) : (
           <div className="lg:w-[1000px] xl:w-[1200px] overflow-x-auto">
             <svg
-              viewBox="0 0 888 152"
+              viewBox="0 0 893 152"
               className="w-[1000px] lg:w-full text-accent-foreground"
             >
               <g>
                 {Object.keys(monthsX).map((month, i) => (
                   <text
-                    x={monthsX[month] + 40}
+                    x={monthsX[month] + 45}
                     dominantBaseline="hanging"
                     fill="currentColor"
                   >
@@ -111,7 +111,7 @@ export const Github = () => {
               </g>
               <g>
                 <text
-                  x="28"
+                  x="36"
                   y="36"
                   dominantBaseline="hanging"
                   fill="currentColor"
@@ -120,7 +120,7 @@ export const Github = () => {
                   Mon
                 </text>
                 <text
-                  x="28"
+                  x="36"
                   y="68"
                   dominantBaseline="hanging"
                   fill="currentColor"
@@ -129,7 +129,7 @@ export const Github = () => {
                   Wed
                 </text>
                 <text
-                  x="28"
+                  x="36"
                   y="100"
                   dominantBaseline="hanging"
                   fill="currentColor"
@@ -140,7 +140,7 @@ export const Github = () => {
               </g>
               <g>
                 <text
-                  x="40"
+                  x="45"
                   y="136"
                   dominantBaseline="hanging"
                   fill="currentColor"
@@ -222,7 +222,7 @@ export const Github = () => {
                   <g transform={`translate(${i * baseSize}, 20)`}>
                     {week.contributionDays.map((day, j) => (
                       <rect
-                        x="40"
+                        x="45"
                         y={j * baseSize}
                         width="12"
                         height="12"
