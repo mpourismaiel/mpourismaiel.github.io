@@ -32,7 +32,7 @@ export default function Home() {
           <Projects />
           <Separator />
           <Footer />
-          <Navigation className="fixed left-1/2 bottom-8 -translate-x-1/2" />
+          <Navigation />
         </main>
       </div>
     </QueryClientProvider>

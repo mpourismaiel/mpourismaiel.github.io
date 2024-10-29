@@ -1,9 +1,15 @@
-import { CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react";
+import {
+  CalendarIcon,
+  ChevronUpIcon,
+  HomeIcon,
+  MailIcon,
+  PencilIcon,
+} from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 import { Dock, DockIcon } from "@/components/magicui/dock";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
   Tooltip,
@@ -88,55 +94,71 @@ const DATA = {
   },
 };
 
-export const Navigation = ({ className }: { className?: string }) => {
+export const Navigation = () => {
+  const backToTop = () => {
+    if (typeof window !== "undefined" && window.scrollY > 0) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <TooltipProvider>
-      <Dock direction="middle" className={className}>
-        {DATA.navbar.map(item => (
-          <DockIcon key={item.label}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href={item.href}
-                  aria-label={item.label}
-                  className={cn(
-                    buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12 rounded-full hover:bg-accent/50",
-                  )}
-                >
-                  <item.icon className="size-4" />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{item.label}</p>
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-        ))}
-        <Separator orientation="vertical" className="h-full" />
-        {Object.entries(DATA.contact.social).map(([name, social]) => (
-          <DockIcon key={name}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href={social.url}
-                  aria-label={social.name}
-                  target="_blank"
-                  className={cn(
-                    buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12 rounded-full hover:bg-accent/50 hover:backdrop-blur-md",
-                  )}
-                >
-                  <social.icon className="size-4" />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{name}</p>
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-        ))}
-      </Dock>
+      <div className="fixed left-1/2 bottom-8 -translate-x-1/2 flex gap-4 items-center">
+        <Dock direction="middle">
+          {DATA.navbar.map(item => (
+            <DockIcon key={item.label}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link
+                    href={item.href}
+                    aria-label={item.label}
+                    className={cn(
+                      buttonVariants({ variant: "ghost", size: "icon" }),
+                      "size-12 rounded-full hover:bg-accent/50",
+                    )}
+                  >
+                    <item.icon className="size-4" />
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{item.label}</p>
+                </TooltipContent>
+              </Tooltip>
+            </DockIcon>
+          ))}
+          <Separator orientation="vertical" className="h-full" />
+          {Object.entries(DATA.contact.social).map(([name, social]) => (
+            <DockIcon key={name}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link
+                    href={social.url}
+                    aria-label={social.name}
+                    target="_blank"
+                    className={cn(
+                      buttonVariants({ variant: "ghost", size: "icon" }),
+                      "size-12 rounded-full hover:bg-accent/50 hover:backdrop-blur-md",
+                    )}
+                  >
+                    <social.icon className="size-4" />
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{name}</p>
+                </TooltipContent>
+              </Tooltip>
+            </DockIcon>
+          ))}
+        </Dock>
+        <Button
+          type="button"
+          variant="default"
+          className="h-[58px] rounded-full border bg-white/10 dark:bg-black/10 backdrop-blur-md text-white"
+          onClick={backToTop}
+        >
+          <ChevronUpIcon className="size-6" />
+        </Button>
+      </div>
     </TooltipProvider>
   );
 };
