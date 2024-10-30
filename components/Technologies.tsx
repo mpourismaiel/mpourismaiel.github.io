@@ -77,7 +77,7 @@ export const Technologies = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4">
         <Section title="Languages">
           <p className="w-full text-muted-foreground text-center">
-            More than a thousand hours:
+            More than a couple thousand hours:
           </p>
           <Technology
             title="Typescript"
