@@ -1,15 +1,6 @@
 import { motion } from "framer-motion";
 import { BriefcaseBusinessIcon } from "lucide-react";
-import {
-  LegacyRef,
-  RefObject,
-  createRef,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import { Technology } from "./Technologies";
 import { TitleWithIcon } from "./TitleWithIcon";
