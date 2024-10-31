@@ -1,19 +1,21 @@
-import { ChevronLeftIcon } from "lucide-react";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 
-import { BlogPostLayout } from "@/components/BlogPostLayout";
 import { CodeTag } from "@/components/CodeTag";
-import { Button } from "@/components/ui/button";
+import { BlogPostLayout } from "@/components/blog/BlogPostLayout";
+import { H3 } from "@/components/blog/H3";
+import { H4 } from "@/components/blog/H4";
+import { Image } from "@/components/blog/Image";
 import { BlogSEOType } from "@/lib/types";
 
-const seo = {
-  draft: true,
+export const seo = {
+  draft: false,
   title: "Why you should benchmark your code",
   description:
     "Benchmarking and writing fast code is a crucial part of software development. Learn how to write faster code and why you should benchmark your code.",
   date: new Date("2024-10-30"),
   lastmod: new Date("2024-10-30"),
+  image: "/why-you-should-benchmark-your-code-01.jpg",
   tags: ["development", "testing", "benchmarking"],
 } satisfies BlogSEOType;
 
@@ -21,14 +23,6 @@ export default function BlogPostPage({ slug }: { slug: string }) {
   return (
     <BlogPostLayout>
       <NextSeo title={seo.title} description={seo.description} />
-      <div id="top-bar" className="flex items-center gap-4 border-b py-4">
-        <Button variant="ghost" size="icon" asChild>
-          <Link href="/blog">
-            <ChevronLeftIcon className="size-6" />
-          </Link>
-        </Button>
-        <h1 className="text-xl font-bold">Mahdi Pourismaiel Articles</h1>
-      </div>
       <div className="flex flex-col pb-8 min-h-[calc(100dvh-300px)]">
         <h1 className="text-xl font-bold xl:text-3xl pb-2 pt-8">
           {`${seo.draft ? "[WIP] - " : ""}${seo.title}`}
@@ -46,6 +40,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
           </time>
         </div>
         <div className="prose prose-invert prose-zinc prose-xl max-w-none">
+          <Image src={seo.image} alt={seo.title} />
           <p>
             I started programming at a young age without any guidance, which
             meant for the longest time I had no idea what everyone meant by big
@@ -63,7 +58,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
             algorithms and make sure they run efficiently. You can test
             different implementations and compare their performance.
           </p>
-          <h3>Simple Implementation</h3>
+          <H3 title="Simple Implementation" />
           <p>
             Benchmarking goes hand in hand with unit testing. When you write
             unit tests, you're testing the correctness of your code. But when
@@ -114,7 +109,7 @@ add(1, 2)
             test different implementations of the same code and compare their
             performance.
           </p>
-          <h3>More Advanced Options</h3>
+          <H3 title="More Advanced Options" />
           <p>
             While the simple implementation is good enough for most cases, there
             are times when you need to make sure your code is running fast
@@ -160,7 +155,7 @@ benchmark((a: number, b: number) => a + b, () => [Math.random(), Math.random()],
             found is{" "}
             <Link href="https://github.com/tinylibs/tinybench">Tinybench</Link>.
           </p>
-          <h4 className="text-base">Tinybench (Typescript/Javascript)</h4>
+          <H4 title="Tinybench (Typescript/Javascript)" />
           <p>
             Tinybench is built to allow you to check how your code performs in
             any environment with precise timings and comparisons. It even allows
@@ -203,9 +198,7 @@ console.table(bench.table());
             and compare it to other implementations. It's a powerful tool that I
             have come to love and plan on using in my future projects.
           </p>
-          <h4 className="text-base">
-            Go's <code>-bench</code>
-          </h4>
+          <H4 title="Go benchmark tests" />
           <p>
             Go has an amazing built-in benchmarking tool that you can use to
             test your code. In order to use it you need to write a test file
@@ -235,7 +228,7 @@ return i + i
             average time it took to run your code. This is a powerful tool that
             I wish was built-in to other languages as well.
           </p>
-          <h3>Final thoughts</h3>
+          <H3 title="Final thoughts" />
           <p>
             Hopefully, this article has convinced you of the importance of
             benchmarking your code. By benchmarking your code, you can identify
