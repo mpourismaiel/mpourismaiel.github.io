@@ -76,29 +76,29 @@ export default function BlogPostPage({ slug }: { slug: string }) {
           <CodeTag
             languages={{
               typescript: `function time(func: Function): void {
-const start = Date.now();
-func();
-const end = Date.now();
-console.log(\`Function took \${end - start}ms to run.\`);
+  const start = Date.now();
+  func();
+  const end = Date.now();
+  console.log(\`Function took \${end - start}ms to run.\`);
 }
 
 const add = (a: number, b: number) => a + b;
 time(() => add(1, 2));`,
               go: `func time(f func()) {
-start := time.Now()
-f()
-end := time.Now()
-fmt.Printf("Function took %dms to run.\\n", end.Sub(start).Milliseconds())
+  start := time.Now()
+  f()
+  end := time.Now()
+  fmt.Printf("Function took %dms to run.\\n", end.Sub(start).Milliseconds())
 }
 
 func add(a, b int) int {
-return a + b
+  return a + b
 }
 
 func main() {
-time(func() {
-add(1, 2)
-})
+  time(func() {
+    add(1, 2)
+  })
 }`,
             }}
           />
@@ -119,22 +119,23 @@ add(1, 2)
           <CodeTag
             languages={{
               typescript: `function benchmark(func: Function, args: () => unknown[], iterations: number): void {
-const times: number[] = [];
-const runs: [unknown[], unknown[]] = []
-const benchmarkStart = Date.now()
-for (let i = 0; i < iterations; i++) {
-const start = Date.now();
-const input = args()
-const result = func(...input);
-const end = Date.now();
-times.push(end - start);
-runs.push([input, result])
-}
-const benchmarkEnd = Date.now()
-const average = times.reduce((a, b) => a + b, 0) / times.length;
-console.log('Runs:');
-runs.forEach(([args, result]) => console.log(\`\${args} -> \${result}\`));
-console.log(\`Function took an average of \${average}ms to run and total of \${benchmarkEnd - benchmarkStart}ms to complete.\`);
+  const times: number[] = [];
+  const runs: [unknown[], unknown[]] = []
+  const benchmarkStart = Date.now()
+  for (let i = 0; i < iterations; i++) {
+    const start = Date.now();
+    const input = args()
+    const result = func(...input);
+    const end = Date.now();
+    times.push(end - start);
+    runs.push([input, result])
+  }
+
+  const benchmarkEnd = Date.now()
+  const average = times.reduce((a, b) => a + b, 0) / times.length;
+  console.log('Runs:');
+  runs.forEach(([args, result]) => console.log(\`\${args} -> \${result}\`));
+  console.log(\`Function took an average of \${average}ms to run and total of \${benchmarkEnd - benchmarkStart}ms to complete.\`);
 }
 
 benchmark((a: number, b: number) => a + b, () => [Math.random(), Math.random()], 1000)`,
@@ -169,13 +170,13 @@ benchmark((a: number, b: number) => a + b, () => [Math.random(), Math.random()],
 const bench = new Bench({ name: 'simple benchmark', time: 100 });
 
 bench
-.add('faster task', () => {
-console.log('I am faster');
-})
-.add('slower task', async () => {
-await new Promise((r) => setTimeout(r, 1)); // we wait 1ms :)
-console.log('I am slower');
-});
+  .add('faster task', () => {
+    console.log('I am faster');
+  })
+  .add('slower task', async () => {
+    await new Promise((r) => setTimeout(r, 1)); // we wait 1ms :)
+    console.log('I am slower');
+  });
 
 await bench.run();
 
@@ -211,13 +212,13 @@ console.table(bench.table());
               go: `package main
 
 import (
-"testing"
+  "testing"
 )
 
 func BenchmarkAddFunction(b *testing.B) {
-for i := 0; i < b.N; i++ {
-return i + i
-}
+  for i := 0; i < b.N; i++ {
+    return i + i
+  }
 }`,
               bash: `go test -bench=.`,
             }}
