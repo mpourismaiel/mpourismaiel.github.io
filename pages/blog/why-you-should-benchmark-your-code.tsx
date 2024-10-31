@@ -229,15 +229,41 @@ func BenchmarkAddFunction(b *testing.B) {
             I wish was built-in to other languages as well.
           </p>
           <H3 title="Final thoughts" />
+          <blockquote className="rounded-md bg-secondary text-secondary-foreground py-2">
+            Premature optimization is the root of all evil.
+            <br />- Donald Knuth
+          </blockquote>
           <p>
-            Hopefully, this article has convinced you of the importance of
-            benchmarking your code. By benchmarking your code, you can identify
-            bottlenecks and optimize your code. You can write complex algorithms
-            and make sure they run efficiently. You can test different
-            implementations and compare their performance. We talk a lot about
-            writing clean code and unit testing, but benchmarking is just as
-            important. It's an essential part of software development and it's
-            something that every developer should be doing.
+            The famous quote used to excuse every bottleneck! In all honesty,
+            the main goal I still follow is to write clean and maintainable
+            code. Having a working code is far more important than having
+            optimized code. But let's say my code is finally working and I am
+            happy with it, I will then start optimizing it. That's when I go
+            through all the styles and make sure I minimize duplicate rules
+            (unless I'm writing Tailwind, goddammit!), move similar codes into
+            functions and when I benchmark different parts of the application.
+          </p>
+          <p>
+            Even solving challenges in leetcode and participating in hackathons,
+            my main focus is to solve the problems and have a working solution
+            and then move on to find a better solution.
+          </p>
+          <p>
+            We keep talking about TDD but let's be honest, most of us don't
+            write a single unit test until the project is done and sometimes not
+            even then do we write them. But code performance is not something
+            you can skip. Sometimes you can be reasonably sure that your code is
+            working since you usually test what you write manually and you might
+            want to skip automated testing but you can't be sure that fancy
+            algorithm you wrote would work seamlessly on phones (specially weird
+            behaviors rise when running on ios safari).
+          </p>
+          <p>
+            So, in conclusion, benchmarking is an essential part of software
+            development. It helps you identify bottlenecks, and optimize your
+            code. It's a crucial step in the development process (or maybe after
+            the development process), and it's something you should keep in mind
+            for your projects.
           </p>
         </div>
       </div>
