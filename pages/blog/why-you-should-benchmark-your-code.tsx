@@ -39,7 +39,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
             })}`}
           </time>
         </div>
-        <div className="prose prose-invert prose-zinc prose-xl max-w-none">
+        <div className="prose prose-invert prose-zinc max-w-none">
           <Image src={seo.image} alt={seo.title} />
           <p>
             I started programming at a young age without any guidance, which

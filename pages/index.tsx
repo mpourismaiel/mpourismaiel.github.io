@@ -32,7 +32,7 @@ export default function Home() {
           <Projects />
           <Separator />
           <Footer />
-          <Navigation />
+          <Navigation isHome />
         </main>
       </div>
     </QueryClientProvider>

@@ -3,6 +3,7 @@ import {
   ChevronUpIcon,
   HomeIcon,
   MailIcon,
+  NewspaperIcon,
   PencilIcon,
 } from "lucide-react";
 import Link from "next/link";
@@ -67,7 +68,10 @@ const Icons = {
 };
 
 const DATA = {
-  navbar: [{ href: "/", icon: HomeIcon, label: "Home" }],
+  navbar: [
+    { href: "/", icon: HomeIcon, label: "Home", hideOnHome: true },
+    { href: "/blog", icon: NewspaperIcon, label: "Blog", hideNotOnHome: true },
+  ],
   contact: {
     social: {
       GitHub: {
@@ -94,7 +98,7 @@ const DATA = {
   },
 };
 
-export const Navigation = () => {
+export const Navigation = ({ isHome }: { isHome?: boolean }) => {
   const backToTop = () => {
     if (typeof window !== "undefined" && window.scrollY > 0) {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -105,27 +109,32 @@ export const Navigation = () => {
     <TooltipProvider>
       <div className="fixed left-1/2 bottom-8 -translate-x-1/2 flex gap-4 items-center">
         <Dock direction="middle">
-          {DATA.navbar.map(item => (
-            <DockIcon key={item.label}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={item.href}
-                    aria-label={item.label}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full hover:bg-accent/50",
-                    )}
-                  >
-                    <item.icon className="size-4" />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{item.label}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          ))}
+          {DATA.navbar
+            .filter(({ hideOnHome, hideNotOnHome }) => {
+              if (isHome) return !hideOnHome;
+              return !hideNotOnHome;
+            })
+            .map(item => (
+              <DockIcon key={item.label}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Link
+                      href={item.href}
+                      aria-label={item.label}
+                      className={cn(
+                        buttonVariants({ variant: "ghost", size: "icon" }),
+                        "size-12 rounded-full hover:bg-accent/50",
+                      )}
+                    >
+                      <item.icon className="size-4" />
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{item.label}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </DockIcon>
+            ))}
           <Separator orientation="vertical" className="h-full" />
           {Object.entries(DATA.contact.social).map(([name, social]) => (
             <DockIcon key={name}>

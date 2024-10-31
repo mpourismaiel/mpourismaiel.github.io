@@ -1,10 +1,9 @@
 import { ChevronLeftIcon } from "lucide-react";
 import { GetStaticProps } from "next";
+import { NextSeo } from "next-seo";
 import Link from "next/link";
 
-import { Footer } from "@/components/Footer";
-import { Navigation } from "@/components/Navigation";
-import { Button } from "@/components/ui/button";
+import { BlogPostLayout } from "@/components/blog/BlogPostLayout";
 import {
   Card,
   CardContent,
@@ -12,7 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { BlogSEOType } from "@/lib/types";
 
 export const getStaticProps = (async () => {
@@ -51,59 +49,48 @@ export default function BlogIndexPage({
   links: (BlogSEOType & { href: string })[];
 }) {
   return (
-    <div className="flex justify-center px-4 lg:px-0 pb-32 bg-[#1c1624] min-h-screen">
-      <main className="flex w-full max-w-full flex-col lg:max-w-[1000px] xl:max-w-screen-lg z-10 min-h-[calc(100dvh-100px)]">
-        <div id="top-bar" className="flex items-center gap-4 border-b py-4">
-          <Button variant="ghost" size="icon" asChild>
-            <Link href="/">
-              <ChevronLeftIcon className="size-6" />
-            </Link>
-          </Button>
-          <h1 className="text-xl font-bold">Mahdi Pourismaiel</h1>
+    <BlogPostLayout title="Mahdi Pourismaiel">
+      <NextSeo
+        title="Mahdi Pourismaiel - Blog"
+        description="Mahdi Pourismaiel's blog posts."
+      />
+      <div className="flex flex-col overflow-y-auto min-h-[calc(100dvh-200px)]">
+        <h1 className="text-4xl font-bold text-secondary-foreground text-center mt-16">
+          Blog
+        </h1>
+        <div className="flex flex-col gap-4 my-8">
+          {links.map(({ title, description, image, date, href }) => (
+            <Card
+              key={href}
+              className="flex flex-col overflow-hidden supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 bg-black/10 backdrop-blur-sm shadow-md"
+            >
+              <img
+                src={image}
+                alt={title}
+                className="w-full h-[250px] object-cover"
+              />
+              <CardHeader>
+                <Link href={href} className="text-xl">
+                  <CardTitle>{title}</CardTitle>
+                </Link>
+                <CardDescription>
+                  {new Date(date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>{description}</p>
+                <Link href={href} className="text-blue-500">
+                  Read more...
+                </Link>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-        <div className="flex flex-col overflow-y-auto flex-1">
-          <h1 className="text-4xl font-bold text-secondary-foreground text-center mt-16">
-            Blog
-          </h1>
-          <div className="flex flex-col gap-4 my-8">
-            {links.map(({ title, description, image, date, href }) => (
-              <Card
-                key={href}
-                className="flex flex-col overflow-hidden supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 bg-black/10 backdrop-blur-sm shadow-md"
-              >
-                <img
-                  src={image}
-                  alt={title}
-                  className="w-full h-[250px] object-cover"
-                />
-                <CardHeader>
-                  <Link href={href} className="text-xl">
-                    <CardTitle>{title}</CardTitle>
-                  </Link>
-                  <CardDescription>
-                    {new Date(date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>{description}</p>
-                  <Link href={href} className="text-blue-500">
-                    Read more...
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-        <div className="flex flex-col gap-8">
-          <Separator />
-          <Footer />
-          <Navigation />
-        </div>
-      </main>
-    </div>
+      </div>
+    </BlogPostLayout>
   );
 }
