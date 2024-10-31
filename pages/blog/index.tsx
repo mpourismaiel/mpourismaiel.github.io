@@ -49,7 +49,7 @@ export default function BlogIndexPage({
   links: (BlogSEOType & { href: string })[];
 }) {
   return (
-    <BlogPostLayout title="Mahdi Pourismaiel" backLink="/">
+    <BlogPostLayout title="Mahdi Pourismaiel" backLink="/" hideComments>
       <NextSeo
         title="Mahdi Pourismaiel - Blog"
         description="Mahdi Pourismaiel's blog posts."

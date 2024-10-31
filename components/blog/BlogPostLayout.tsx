@@ -3,6 +3,7 @@ import { NextSeo } from "next-seo";
 import Link from "next/link";
 
 import { Button } from "../ui/button";
+import { Comments } from "./Comments";
 import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
 import { Separator } from "@/components/ui/separator";
@@ -12,11 +13,13 @@ export const BlogPostLayout = ({
   title = "Mahdi Pourismaiel Articles",
   seo,
   backLink = "/blog",
+  hideComments,
   children,
 }: {
   title?: string;
   seo?: BlogSEOType;
   backLink?: string;
+  hideComments?: boolean;
   children: React.ReactNode;
 }) => {
   return (
@@ -57,6 +60,7 @@ export const BlogPostLayout = ({
           <h1 className="text-xl font-bold">{title}</h1>
         </div>
         {children}
+        {hideComments ? null : <Comments />}
         <div className="flex flex-col gap-8">
           <Separator />
           <Footer />
