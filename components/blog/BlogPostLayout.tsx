@@ -11,10 +11,12 @@ import { BlogSEOType } from "@/lib/types";
 export const BlogPostLayout = ({
   title = "Mahdi Pourismaiel Articles",
   seo,
+  backLink = "/blog",
   children,
 }: {
   title?: string;
   seo?: BlogSEOType;
+  backLink?: string;
   children: React.ReactNode;
 }) => {
   return (
@@ -48,7 +50,7 @@ export const BlogPostLayout = ({
       <main className="flex w-full max-w-full flex-col lg:max-w-[1000px] xl:max-w-screen-lg z-10">
         <div id="top-bar" className="flex items-center gap-4 border-b py-4">
           <Button variant="ghost" size="icon" asChild>
-            <Link href="/blog">
+            <Link href={backLink}>
               <ChevronLeftIcon className="size-6" />
             </Link>
           </Button>
