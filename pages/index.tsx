@@ -9,6 +9,7 @@ import { Navigation } from "@/components/Navigation";
 import { Projects } from "@/components/Projects";
 import { Technologies } from "@/components/Technologies";
 import { Separator } from "@/components/ui/separator";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ export default function Home() {
           <Navigation isHome />
         </main>
       </div>
+      <GoogleAnalytics gaId="G-08JPE87VVY" />
     </QueryClientProvider>
   );
 }
