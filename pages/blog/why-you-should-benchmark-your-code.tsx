@@ -226,7 +226,9 @@ func BenchmarkAddFunction(b *testing.B) {
             Now with running the bash command, you can see the performance of
             your code. Go will run your code multiple times and give you the
             average time it took to run your code. This is a powerful tool that
-            I wish was built-in to other languages as well.
+            I wish was built-in to other languages as well. I haven't tested
+            Deno yet which has a similar feature but can't compare it with Go's
+            benchmarking tool.
           </p>
           <H3 title="Final thoughts" />
           <blockquote className="rounded-md bg-secondary text-secondary-foreground py-2">
