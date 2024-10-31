@@ -7,7 +7,6 @@ import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
 import { Separator } from "@/components/ui/separator";
 import { BlogSEOType } from "@/lib/types";
-import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const BlogPostLayout = ({
   title = "Mahdi Pourismaiel Articles",
@@ -64,7 +63,6 @@ export const BlogPostLayout = ({
           <Navigation />
         </div>
       </main>
-      <GoogleAnalytics gaId="G-08JPE87VVY" />
     </div>
   );
 };
