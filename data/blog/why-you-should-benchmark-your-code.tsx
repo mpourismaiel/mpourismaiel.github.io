@@ -66,9 +66,9 @@ func main() {
         }}
       />
       <p>
-        You can pass your code to this `time` function and it will log the time
-        it took to run your code. This is a simple and effective way to
-        benchmark your code. You can use this function to test different
+        You can pass your code to this <code>time</code> function and it will
+        log the time it took to run your code. This is a simple and effective
+        way to benchmark your code. You can use this function to test different
         implementations of the same code and compare their performance.
       </p>
       <h3>More Advanced Options</h3>
@@ -103,10 +103,10 @@ benchmark((a: number, b: number) => a + b, () => [Math.random(), Math.random()],
         }}
       />
       <p>
-        This is a more advanced version of the `time` function, allowing you to
-        monitor different inputs and outputs of your code. Still, it's a simple
-        implementation and not a true benchmarking library. But for most cases
-        this is more than good enough.
+        This is a more advanced version of the <code>time</code> function,
+        allowing you to monitor different inputs and outputs of your code.
+        Still, it's a simple implementation and not a true benchmarking library.
+        But for most cases this is more than good enough.
       </p>
       <p>
         For my daily work, I usually don't need anything more than this. Usually
@@ -117,7 +117,7 @@ benchmark((a: number, b: number) => a + b, () => [Math.random(), Math.random()],
         found is{" "}
         <Link href="https://github.com/tinylibs/tinybench">Tinybench</Link>.
       </p>
-      <h3>Tinybench (Typescript/Javascript)</h3>
+      <h4 className="text-base">Tinybench (Typescript/Javascript)</h4>
       <p>
         Tinybench is built to allow you to check how your code performs in any
         environment with precise timings and comparisons. It even allows you to
@@ -154,6 +154,54 @@ console.table(bench.table());
 // └─────────┴───────────────┴────────────────────────────┴───────────────────────────┴──────────────────────┴─────────────────────┴─────────┘`,
         }}
       />
+      <p>
+        With Tinybench you can not only run your code and measure the time it
+        takes to run, but you can see if it has a consistent performance and
+        compare it to other implementations. It's a powerful tool that I have
+        come to love and plan on using in my future projects.
+      </p>
+      <h4 className="text-base">
+        Go's <code>-bench</code>
+      </h4>
+      <p>
+        Go has an amazing built-in benchmarking tool that you can use to test
+        your code. In order to use it you need to write a test file with the
+        suffix <code>_test.go</code> and add a function with the signature
+        <code>Benchmark*</code> to your test file. Here's an example:
+      </p>
+      <CodeTag
+        languages={{
+          go: `package main
+
+import (
+  "testing"
+)
+
+func BenchmarkAddFunction(b *testing.B) {
+  for i := 0; i < b.N; i++ {
+    return i + i
+  }
+}`,
+          bash: `go test -bench=.`,
+        }}
+      />
+      <p>
+        Now with running the bash command, you can see the performance of your
+        code. Go will run your code multiple times and give you the average time
+        it took to run your code. This is a powerful tool that I wish was
+        built-in to other languages as well.
+      </p>
+      <h3>Final thoughts</h3>
+      <p>
+        Hopefully, this article has convinced you of the importance of
+        benchmarking your code. By benchmarking your code, you can identify
+        bottlenecks and optimize your code. You can write complex algorithms and
+        make sure they run efficiently. You can test different implementations
+        and compare their performance. We talk a lot about writing clean code
+        and unit testing, but benchmarking is just as important. It's an
+        essential part of software development and it's something that every
+        developer should be doing.
+      </p>
     </>
   );
 }
