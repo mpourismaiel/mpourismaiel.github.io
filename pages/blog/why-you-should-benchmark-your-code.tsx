@@ -2,7 +2,7 @@ import { ChevronLeftIcon } from "lucide-react";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 
-import { BlogPostLayout } from "./layout";
+import { BlogPostLayout } from "@/components/BlogPostLayout";
 import { CodeTag } from "@/components/CodeTag";
 import { Button } from "@/components/ui/button";
 import { BlogSEOType } from "@/lib/types";
