@@ -53,6 +53,16 @@ export default function BlogIndexPage({
       <NextSeo
         title="Mahdi Pourismaiel - Blog"
         description="Mahdi Pourismaiel's blog posts."
+        twitter={{
+          handle: "@mpourismaiel",
+          site: "@mpourismaiel",
+          cardType: "summary_large_image",
+        }}
+        themeColor="#1c1624"
+        openGraph={{
+          title: "Mahdi Pourismaiel - Blog",
+          description: "Mahdi Pourismaiel's blog posts.",
+        }}
       />
       <div className="flex flex-col overflow-y-auto min-h-[calc(100dvh-200px)]">
         <h1 className="text-4xl font-bold text-secondary-foreground text-center mt-16">

@@ -21,8 +21,7 @@ export const seo = {
 
 export default function BlogPostPage({ slug }: { slug: string }) {
   return (
-    <BlogPostLayout>
-      <NextSeo title={seo.title} description={seo.description} />
+    <BlogPostLayout seo={seo}>
       <div className="flex flex-col pb-8 min-h-[calc(100dvh-300px)]">
         <h1 className="text-xl font-bold xl:text-3xl pb-2 pt-8">
           {`${seo.draft ? "[WIP] - " : ""}${seo.title}`}
