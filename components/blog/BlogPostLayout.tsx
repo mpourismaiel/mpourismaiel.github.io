@@ -90,7 +90,9 @@ export const BlogPostLayout = ({
         ) : (
           children
         )}
-        {hideComments ? null : <Comments />}
+        {hideComments || process.env.NODE_ENV !== "production" ? null : (
+          <Comments />
+        )}
         <div className="flex flex-col gap-8">
           <Separator />
           <Footer />
