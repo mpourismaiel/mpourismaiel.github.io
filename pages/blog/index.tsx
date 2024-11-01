@@ -30,6 +30,9 @@ export const getStaticProps = (async () => {
             }),
         )
       )
+        .filter((seo: BlogSEOType & { href: string }) =>
+          process.env.NODE_ENV !== "development" ? !seo.draft : true,
+        )
         .sort(
           (a: { date: Date }, b: { date: Date }) =>
             b.date.getTime() - a.date.getTime(),
@@ -69,19 +72,21 @@ export default function BlogIndexPage({
           Blog
         </h1>
         <div className="flex flex-col gap-4 my-8">
-          {links.map(({ title, description, image, date, href }) => (
+          {links.map(({ title, description, draft, image, date, href }) => (
             <Card
               key={href}
               className="flex flex-col overflow-hidden supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 bg-black/10 backdrop-blur-sm shadow-md"
             >
-              <img
-                src={image}
-                alt={title}
-                className="w-full h-[250px] object-cover"
-              />
+              {image ? (
+                <img
+                  src={image}
+                  alt={title}
+                  className="w-full h-[250px] object-cover"
+                />
+              ) : null}
               <CardHeader>
                 <Link href={href} className="text-xl">
-                  <CardTitle>{title}</CardTitle>
+                  <CardTitle>{`${draft ? "[WIP] - " : ""}${title}`}</CardTitle>
                 </Link>
                 <CardDescription>
                   {new Date(date).toLocaleDateString("en-US", {

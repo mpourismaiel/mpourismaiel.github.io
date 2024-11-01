@@ -22,7 +22,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <div className={`${sansFont.variable} ${monoFont.variable} font-sans`}>
       <Component {...pageProps} />
       <div id="tooltip"></div>
-      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
+      {process.env.NODE_ENV !== "production" ? (
+        <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
+      ) : null}
     </div>
   );
 }

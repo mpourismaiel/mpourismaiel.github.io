@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { Button } from "../ui/button";
 import { Comments } from "./Comments";
+import { Image } from "./Image";
 import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
 import { Separator } from "@/components/ui/separator";
@@ -59,7 +60,34 @@ export const BlogPostLayout = ({
           </Button>
           <h1 className="text-xl font-bold">{title}</h1>
         </div>
-        {children}
+        {seo ? (
+          <div className="flex flex-col pb-8 min-h-[calc(100dvh-300px)]">
+            <h1 className="text-xl font-bold xl:text-3xl pb-2 pt-8">
+              {`${seo.draft ? "[WIP] - " : ""}${seo.title}`}
+            </h1>
+            <div className="flex items-center mb-6">
+              <time
+                className="text-sm text-muted-foreground"
+                dateTime={seo.date.toISOString()}
+              >
+                {`Published on ${new Date(seo.date).toLocaleDateString(
+                  "en-US",
+                  {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  },
+                )}`}
+              </time>
+            </div>
+            {seo.image ? <Image src={seo.image} alt={seo.title} /> : null}
+            <div className="prose prose-invert prose-zinc max-w-none">
+              {children}
+            </div>
+          </div>
+        ) : (
+          children
+        )}
         {hideComments ? null : <Comments />}
         <div className="flex flex-col gap-8">
           <Separator />
