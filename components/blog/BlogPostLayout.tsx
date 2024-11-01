@@ -80,7 +80,9 @@ export const BlogPostLayout = ({
                 )}`}
               </time>
             </div>
-            {seo.image ? <Image src={seo.image} alt={seo.title} /> : null}
+            {seo.image ? (
+              <Image src={seo.image} alt={seo.title} showAlt={false} />
+            ) : null}
             <div className="prose prose-invert prose-zinc max-w-none">
               {children}
             </div>
