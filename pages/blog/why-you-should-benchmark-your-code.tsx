@@ -19,7 +19,7 @@ export const seo = {
   tags: ["development", "testing", "benchmarking"],
 } satisfies BlogSEOType;
 
-export default function BlogPostPage({ slug }: { slug: string }) {
+export default function BlogPostPage() {
   return (
     <BlogPostLayout seo={seo}>
       <p>
