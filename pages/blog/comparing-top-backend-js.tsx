@@ -81,6 +81,66 @@ export default function BlogPostPage() {
         here to stay. The teams behind these projects are huge, the communities
         are vast, and the scalability is immense.
       </p>
+      <H3 title="Nest and Adonis" />
+      <p>
+        From all of the different JavaScript frameworks out there, I love Nest
+        the most. From it's amazing documentation to it's powerful CLI, it's
+        amazing decorators and it's vast ecosystem, Nest is the framework to go
+        for if you're looking for a scalable and powerful backend framework. It
+        provides you with everything you need to build a powerful backend
+        application and makes it easy for new developers to come in and continue
+        your work.
+      </p>
+      <p>
+        Adonis is another great framework. It's Laravel in JS. It's powerful,
+        it's vast, and it's amazing. It's got everything you need to build a
+        powerful backend application and it's got a great community behind it.
+        It's a great choice for those who are looking for a Laravel-like
+        experience in JS. My only qualm with Adonis is the bad upgrade
+        experience we got from v5 to v6. It was a nightmare. For some time there
+        was no documentation on how to upgrade and it was a mess. But they've
+        fixed it now and it's a great framework to work with.
+      </p>
+      <p>
+        Although Adonis is absolutely amazing and I love it, I still prefer Nest
+        over it. In my opinion, Nest provides a more team friendly experience
+        and it's more scalable than Adonis. I love the way Nest is built and I
+        love the way it's structured. It's a great framework and I highly
+        recommend it. That's not to say Adonis is bad. It's great. It's just
+        that I prefer Nest over it.
+      </p>
+      <H3 title="Strapi" />
+      <p>
+        Strapi is a different beast. It's not a framework, it's a CMS. Why is it
+        listed in an article comparing frameworks? Well, I wanted to share my
+        thoughts on it.
+      </p>
+      <H4 title="My process for starting a project" />
+      <p>
+        When I want to start a project, it's important to me that I know the
+        approximate scope and scale of the project. It's not exactly about the
+        size of the project and what features I want in it, it's about how fine
+        of a control do I want over the project.
+      </p>
+      <p>
+        For example sometimes I don't care how the user logs in, I may just
+        allow them to use their social accounts. Sometimes it's more important
+        that only certain people can access the application. For cases that I
+        don't care at all about the backend and just want to be able to share
+        data with the frontend, I use Strapi. It allows me to define my models
+        visually which is amazing if I want to share the project with a client,
+        and on top of that it provides visual editors to enter data for those
+        models. Think Wordpress but not limited to blogs.
+      </p>
+      <p>
+        With Strapi you can define access control, have access to a great bunch
+        of plugins, manage media nicely, and have a great API to work with. It
+        provides a bunch of more common features out of the box that were a pain
+        to implement in other frameworks. If I want a project that's not much
+        more complex than a data I/O type of thing and I don't want to
+        overcomplicate things, I definitely go with Strapi and recommend you do
+        the same.
+      </p>
     </BlogPostLayout>
   );
 }
