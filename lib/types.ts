@@ -5,5 +5,6 @@ export type BlogSEOType = {
   date: Date;
   lastmod: Date;
   image?: string;
+  imageExtraClasses?: string;
   tags: string[];
 };

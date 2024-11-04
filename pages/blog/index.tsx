@@ -12,6 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { BlogSEOType } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 export const getStaticProps = (async () => {
   return {
@@ -72,38 +73,51 @@ export default function BlogIndexPage({
           Blog
         </h1>
         <div className="flex flex-col gap-4 my-8">
-          {links.map(({ title, description, draft, image, date, href }) => (
-            <Card
-              key={href}
-              className="flex flex-col overflow-hidden supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 bg-black/10 backdrop-blur-sm shadow-md"
-            >
-              {image ? (
-                <img
-                  src={image}
-                  alt={title}
-                  className="w-full h-[250px] object-cover"
-                />
-              ) : null}
-              <CardHeader>
-                <Link href={href} className="text-xl">
-                  <CardTitle>{`${draft ? "[WIP] - " : ""}${title}`}</CardTitle>
-                </Link>
-                <CardDescription>
-                  {new Date(date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>{description}</p>
-                <Link href={href} className="text-blue-500">
-                  Read more...
-                </Link>
-              </CardContent>
-            </Card>
-          ))}
+          {links.map(
+            ({
+              title,
+              description,
+              draft,
+              image,
+              imageExtraClasses,
+              date,
+              href,
+            }) => (
+              <Card
+                key={href}
+                className="flex flex-col overflow-hidden supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 bg-black/10 backdrop-blur-sm shadow-md"
+              >
+                {image ? (
+                  <img
+                    src={image}
+                    alt={title}
+                    className={cn(
+                      "w-full h-[250px] object-cover",
+                      imageExtraClasses,
+                    )}
+                  />
+                ) : null}
+                <CardHeader>
+                  <Link href={href} className="text-xl">
+                    <CardTitle>{`${draft ? "[WIP] - " : ""}${title}`}</CardTitle>
+                  </Link>
+                  <CardDescription>
+                    {new Date(date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p>{description}</p>
+                  <Link href={href} className="text-blue-500">
+                    Read more...
+                  </Link>
+                </CardContent>
+              </Card>
+            ),
+          )}
         </div>
       </div>
     </BlogPostLayout>

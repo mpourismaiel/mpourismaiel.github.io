@@ -13,12 +13,14 @@ import { BlogSEOType } from "@/lib/types";
 export const BlogPostLayout = ({
   title = "Mahdi Pourismaiel Articles",
   seo,
+  includedImage,
   backLink = "/blog",
   hideComments,
   children,
 }: {
   title?: string;
   seo?: BlogSEOType;
+  includedImage?: boolean;
   backLink?: string;
   hideComments?: boolean;
   children: React.ReactNode;
@@ -80,8 +82,13 @@ export const BlogPostLayout = ({
                 )}`}
               </time>
             </div>
-            {seo.image ? (
-              <Image src={seo.image} alt={seo.title} showAlt={false} />
+            {seo.image && !includedImage ? (
+              <Image
+                src={seo.image}
+                alt={seo.title}
+                showAlt={false}
+                className={seo.imageExtraClasses}
+              />
             ) : null}
             <div className="prose prose-invert prose-zinc max-w-none">
               {children}

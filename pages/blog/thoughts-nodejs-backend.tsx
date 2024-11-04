@@ -9,12 +9,13 @@ import { Image } from "@/components/blog/Image";
 import { BlogSEOType } from "@/lib/types";
 
 export const seo = {
-  draft: true,
-  title: "Comparing top backend JavaScript frameworks",
+  title: "My thoughts on Node.js backend frameworks",
   description:
     "A comparison of the top backend JavaScript frameworks, including NestJS, AdonisJS, and Strapi.",
   date: new Date("2024-11-02"),
   lastmod: new Date("2024-11-02"),
+  image: "/thoughts-nodejs-backend.svg",
+  imageExtraClasses: "object-center object-scale-down bg-white w-full",
   tags: ["development", "comparison"],
 } satisfies BlogSEOType;
 
@@ -91,6 +92,19 @@ export default function BlogPostPage() {
         application and makes it easy for new developers to come in and continue
         your work.
       </p>
+      <CodeTag
+        languages={{
+          bash: `npm i -g @nestjs/cli
+nest new project-name
+
+# Or
+
+git clone https://github.com/nestjs/typescript-starter.git project
+cd project
+npm install
+npm run start`,
+        }}
+      />
       <p>
         Adonis is another great framework. It's Laravel in JS. It's powerful,
         it's vast, and it's amazing. It's got everything you need to build a
@@ -101,6 +115,21 @@ export default function BlogPostPage() {
         was no documentation on how to upgrade and it was a mess. But they've
         fixed it now and it's a great framework to work with.
       </p>
+      <CodeTag
+        languages={{
+          bash: `# Create a project and get prompted for all options
+npm init adonisjs@latest hello-world
+
+# Create a project with MySQL
+npm init adonisjs@latest hello-world -- --db=mysql
+
+# Create a project with PostgreSQL and API starter kit
+npm init adonisjs@latest hello-world -- --db=postgres --kit=api
+
+# Create a project with API starter kit and access tokens guard
+npm init adonisjs@latest hello-world -- --kit=api --auth-guard=access_tokens`,
+        }}
+      />
       <p>
         Although Adonis is absolutely amazing and I love it, I still prefer Nest
         over it. In my opinion, Nest provides a more team friendly experience
@@ -115,7 +144,6 @@ export default function BlogPostPage() {
         listed in an article comparing frameworks? Well, I wanted to share my
         thoughts on it.
       </p>
-      <H4 title="My process for starting a project" />
       <p>
         When I want to start a project, it's important to me that I know the
         approximate scope and scale of the project. It's not exactly about the
@@ -140,6 +168,27 @@ export default function BlogPostPage() {
         more complex than a data I/O type of thing and I don't want to
         overcomplicate things, I definitely go with Strapi and recommend you do
         the same.
+      </p>
+      <CodeTag
+        languages={{
+          bash: `npx create-strapi@latest my-strapi-project`,
+        }}
+      />
+      <H3 title="Final thoughts" />
+      <p>
+        In the end, it's all about what you want to do. If your product is going
+        to be complex and you want to have full control over it, go with Nest,
+        or maybe Adonis. But there's no need to overcomplicate things most of
+        the time and you can use the amazing Strapi to get the job done. It's
+        all about what you want to do and how you want to do it.
+      </p>
+      <p>
+        And it's important to consider what your team is comfortable with.
+        Forget "JavaScript is not a real language" memes and consider your
+        teams' strengths. You might have a Python team in which case Django
+        might be a better choice. The point is to choose the right tool for the
+        job and for the team and not choose the trendiest framework out there.
+        Because the most important thing is to get the job done.
       </p>
     </BlogPostLayout>
   );
