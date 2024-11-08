@@ -1,11 +1,8 @@
-import { NextSeo } from "next-seo";
 import Link from "next/link";
 
 import { CodeTag } from "@/components/CodeTag";
 import { BlogPostLayout } from "@/components/blog/BlogPostLayout";
 import { H3 } from "@/components/blog/H3";
-import { H4 } from "@/components/blog/H4";
-import { Image } from "@/components/blog/Image";
 import { BlogSEOType } from "@/lib/types";
 
 export const seo = {

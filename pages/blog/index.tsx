@@ -92,7 +92,7 @@ export default function BlogIndexPage({
                     src={image}
                     alt={title}
                     className={cn(
-                      "w-full h-[250px] object-cover",
+                      "w-full h-[200px] lg:h-[350px] object-cover",
                       imageExtraClasses,
                     )}
                   />
