@@ -37,7 +37,7 @@ export default function BlogPostPage() {
       <p>
         The npm ecosystem provides various packages and most of them are
         developed by a single person or a small team with no outside support,
-        usually not receiving any technical help let alone any monetary suuport
+        usually not receiving any technical help let alone any monetary support
         which understandably causes burnout especially when the package becomes
         popular. This leads to the package being abandoned or worse, being
         passed on to a malicious actor.
