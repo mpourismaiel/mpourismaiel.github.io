@@ -1,11 +1,8 @@
-import Link from "next/link";
-
 import { CodeTag } from "@/components/CodeTag";
-import { BlogPostLayout } from "@/components/blog/BlogPostLayout";
+import { BlogPostLayout, BlogSEOType } from "@/components/blog/BlogPostLayout";
 import { H3 } from "@/components/blog/H3";
-import { BlogSEOType } from "@/lib/types";
 
-export const seo = {
+export const seo: BlogSEOType = {
   title: "My thoughts on Node.js backend frameworks",
   description:
     "A comparison of the top backend JavaScript frameworks, including NestJS, AdonisJS, and Strapi.",
@@ -13,8 +10,8 @@ export const seo = {
   lastmod: new Date("2024-11-02"),
   image: "/thoughts-nodejs-backend.svg",
   imageExtraClasses: "object-center object-scale-down bg-white w-full",
-  tags: ["development", "comparison"],
-} satisfies BlogSEOType;
+  tags: ["development", "comparison", "opinion"],
+};
 
 export default function BlogPostPage() {
   return (

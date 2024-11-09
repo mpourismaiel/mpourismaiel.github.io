@@ -1,20 +1,19 @@
 import Link from "next/link";
 
 import { CodeTag } from "@/components/CodeTag";
-import { BlogPostLayout } from "@/components/blog/BlogPostLayout";
+import { BlogPostLayout, BlogSEOType } from "@/components/blog/BlogPostLayout";
 import { H3 } from "@/components/blog/H3";
 import { H4 } from "@/components/blog/H4";
-import { BlogSEOType } from "@/lib/types";
 
-export const seo = {
+export const seo: BlogSEOType = {
   title: "What's up with Deno?",
   description:
     "Why Deno is the new hotness and what it means for Node.js developers.",
   date: new Date("2024-11-08"),
   lastmod: new Date("2024-11-08"),
   image: "/whats-up-with-deno.png",
-  tags: ["development", "comparison"],
-} satisfies BlogSEOType;
+  tags: ["development", "opinion"],
+};
 
 export default function BlogPostPage() {
   return (

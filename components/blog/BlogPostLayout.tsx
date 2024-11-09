@@ -8,7 +8,26 @@ import { Image } from "./Image";
 import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
 import { Separator } from "@/components/ui/separator";
-import { BlogSEOType } from "@/lib/types";
+import { cn } from "@/lib/utils";
+
+export const SEO_TAGS_COLORS = {
+  development: "bg-[#d946ef] text-black",
+  opinion: "bg-[#8b5cf6] text-black",
+  comparison: "bg-[#0ea5e9] text-black",
+  testing: "bg-[#10b981] text-black",
+  benchmarking: "bg-[#f43f5e] text-black",
+};
+
+export type BlogSEOType = {
+  draft?: boolean;
+  title: string;
+  description: string;
+  date: Date;
+  lastmod: Date;
+  image?: string;
+  imageExtraClasses?: string;
+  tags: (keyof typeof SEO_TAGS_COLORS)[];
+};
 
 export const BlogPostLayout = ({
   title = "Mahdi Pourismaiel Articles",
@@ -64,10 +83,10 @@ export const BlogPostLayout = ({
         </div>
         {seo ? (
           <div className="flex flex-col pb-8 min-h-[calc(100dvh-300px)]">
-            <h1 className="text-xl font-bold xl:text-3xl pb-2 pt-8">
+            <h1 className="text-xl font-bold xl:text-3xl mb-2 mt-8">
               {`${seo.draft ? "[WIP] - " : ""}${seo.title}`}
             </h1>
-            <div className="flex items-center mb-6">
+            <div className="flex items-center mb-2">
               <time
                 className="text-sm text-muted-foreground"
                 dateTime={seo.date.toISOString()}
@@ -82,6 +101,20 @@ export const BlogPostLayout = ({
                 )}`}
               </time>
             </div>
+            {seo.tags ? (
+              <div className="flex items-center gap-2 mb-6">
+                {seo.tags.map(tag => (
+                  <Link
+                    key={tag}
+                    href={`/blog/tag/${tag}`}
+                    className={cn(
+                      "rounded-full text-xs py-0.5 px-2",
+                      SEO_TAGS_COLORS[tag],
+                    )}
+                  >{`#${tag}`}</Link>
+                ))}
+              </div>
+            ) : null}
             {seo.image && !includedImage ? (
               <Image
                 src={seo.image}

@@ -1,11 +1,10 @@
 import { CodeTag } from "@/components/CodeTag";
-import { BlogPostLayout } from "@/components/blog/BlogPostLayout";
+import { BlogPostLayout, BlogSEOType } from "@/components/blog/BlogPostLayout";
 import { H3 } from "@/components/blog/H3";
 import { H4 } from "@/components/blog/H4";
 import { Link } from "@/components/blog/Link";
-import { BlogSEOType } from "@/lib/types";
 
-export const seo = {
+export const seo: BlogSEOType = {
   draft: false,
   title: "Why you should benchmark your code",
   description:
@@ -13,8 +12,8 @@ export const seo = {
   date: new Date("2024-10-30"),
   lastmod: new Date("2024-10-31"),
   image: "/why-you-should-benchmark-your-code-01.jpg",
-  tags: ["development", "testing", "benchmarking"],
-} satisfies BlogSEOType;
+  tags: ["development", "opinion", "testing", "benchmarking"],
+};
 
 export default function BlogPostPage() {
   return (
