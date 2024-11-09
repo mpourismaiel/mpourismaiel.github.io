@@ -27,12 +27,9 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 export const getStaticProps = (async context => {
-  if (!context.params) {
-    return { props: { links: [] } };
-  }
-
   return {
     props: {
+      tag: context.params!.tag as keyof typeof SEO_TAGS_COLORS,
       links: (await getAllBlogPages())
         .filter(
           (seo: BlogSEOType & { href: string }) =>
@@ -52,6 +49,7 @@ export const getStaticProps = (async context => {
   };
 }) satisfies GetStaticProps<
   {
+    tag: keyof typeof SEO_TAGS_COLORS;
     links: (Omit<BlogSEOType, "date" | "lastmod"> & {
       date: string;
       lastmod: string;
@@ -62,11 +60,12 @@ export const getStaticProps = (async context => {
 >;
 
 export default function BlogTagPage({
+  tag,
   links,
 }: {
+  tag: keyof typeof SEO_TAGS_COLORS;
   links: (BlogSEOType & { href: string })[];
 }) {
-  console.log(links);
   return (
     <BlogPostLayout title="Mahdi Pourismaiel" backLink="/" hideComments>
       <NextSeo
@@ -85,7 +84,7 @@ export default function BlogTagPage({
       />
       <div className="flex flex-col overflow-y-auto min-h-[calc(100dvh-200px)]">
         <h1 className="text-4xl font-bold text-secondary-foreground text-center mt-16">
-          {`Blog - ${links[0].tags[0].slice(0, 1).toUpperCase()}${links[0].tags[0].slice(1)}`}
+          {`Blog - ${tag.slice(0, 1).toUpperCase()}${tag.slice(1)}`}
         </h1>
         <div className="flex flex-col gap-4 my-8">
           {links.map(details => (
