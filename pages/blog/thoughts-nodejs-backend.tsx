@@ -1,6 +1,8 @@
 import { CodeTag } from "@/components/CodeTag";
 import { BlogPostLayout, BlogSEOType } from "@/components/blog/BlogPostLayout";
 import { H3 } from "@/components/blog/H3";
+import { postStaticProps } from "@/lib/serverUtils";
+import { BlogLinkType } from "@/lib/types";
 
 export const seo: BlogSEOType = {
   title: "My thoughts on Node.js backend frameworks",
@@ -10,12 +12,14 @@ export const seo: BlogSEOType = {
   lastmod: new Date("2024-11-02"),
   image: "/thoughts-nodejs-backend.svg",
   imageExtraClasses: "object-center object-scale-down bg-white w-full",
-  tags: ["development", "comparison", "opinion"],
+  tags: ["comparison"],
 };
 
-export default function BlogPostPage() {
+export const getStaticProps = postStaticProps;
+
+export default function BlogPostPage({ posts }: { posts: BlogLinkType[] }) {
   return (
-    <BlogPostLayout seo={seo}>
+    <BlogPostLayout seo={seo} relatedPostsPool={posts}>
       <p>
         For the longest time the only way to write backend code (after the dark
         times of pure PHP) was to use JavaScript on the frontend and something

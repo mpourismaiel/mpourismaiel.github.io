@@ -3,6 +3,8 @@ import { BlogPostLayout, BlogSEOType } from "@/components/blog/BlogPostLayout";
 import { H3 } from "@/components/blog/H3";
 import { H4 } from "@/components/blog/H4";
 import { Link } from "@/components/blog/Link";
+import { postStaticProps } from "@/lib/serverUtils";
+import { BlogLinkType } from "@/lib/types";
 
 export const seo: BlogSEOType = {
   draft: false,
@@ -15,9 +17,11 @@ export const seo: BlogSEOType = {
   tags: ["development", "opinion", "testing", "benchmarking"],
 };
 
-export default function BlogPostPage() {
+export const getStaticProps = postStaticProps;
+
+export default function BlogPostPage({ posts }: { posts: BlogLinkType[] }) {
   return (
-    <BlogPostLayout seo={seo}>
+    <BlogPostLayout seo={seo} relatedPostsPool={posts}>
       <p>
         I started programming at a young age without any guidance, which meant
         for the longest time I had no idea what everyone meant by big O

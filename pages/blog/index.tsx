@@ -4,31 +4,23 @@ import { NextSeo } from "next-seo";
 import { ArticleCard } from "@/components/blog/ArticleCard";
 import { BlogPostLayout, BlogSEOType } from "@/components/blog/BlogPostLayout";
 import { getAllBlogPages } from "@/lib/pages";
+import { BlogLinkType, blogDateToIsoString } from "@/lib/types";
+import { sort } from "@/lib/utils";
 
 export const getStaticProps = (async () => {
   return {
     props: {
       links: (await getAllBlogPages())
-        .filter((seo: BlogSEOType & { href: string }) =>
-          process.env.NODE_ENV !== "development" ? !seo.draft : true,
+        .filter(
+          (seo: BlogSEOType & { href: string }) =>
+            process.env.NODE_ENV !== "development" || !seo.draft,
         )
-        .sort(
-          (a: { date: Date }, b: { date: Date }) =>
-            b.date.getTime() - a.date.getTime(),
-        )
-        .map((seo: BlogSEOType & { href: string }) => ({
-          ...seo,
-          date: seo.date.toISOString(),
-          lastmod: seo.lastmod.toISOString(),
-        })),
+        .sort(sort.byDate)
+        .map(blogDateToIsoString),
     },
   };
 }) satisfies GetStaticProps<{
-  links: (Omit<BlogSEOType, "date" | "lastmod"> & {
-    date: string;
-    lastmod: string;
-    href: string;
-  })[];
+  links: BlogLinkType[];
 }>;
 
 export default function BlogIndexPage({

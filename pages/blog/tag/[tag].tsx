@@ -8,17 +8,18 @@ import {
   SEO_TAGS_COLORS,
 } from "@/components/blog/BlogPostLayout";
 import { getAllBlogPages } from "@/lib/pages";
+import { BlogLinkType, blogDateToIsoString } from "@/lib/types";
+import { sort } from "@/lib/utils";
 
 export const getStaticPaths = (async () => {
   const tags = (await getAllBlogPages())
-    .filter((seo: BlogSEOType & { href: string }) =>
-      process.env.NODE_ENV !== "development" ? !seo.draft : true,
+    .filter(
+      (seo: BlogSEOType & { href: string }) =>
+        process.env.NODE_ENV !== "development" || !seo.draft,
     )
     .map((seo: BlogSEOType & { href: string }) => seo.tags)
     .flat()
-    .filter((tag, i, arr) => {
-      return arr.indexOf(tag) === i;
-    });
+    .filter((tag, i, arr) => arr.indexOf(tag) === i);
 
   return {
     paths: tags.map(tag => ({ params: { tag } })),
@@ -36,25 +37,14 @@ export const getStaticProps = (async context => {
             (process.env.NODE_ENV !== "development" ? !seo.draft : true) &&
             seo.tags.includes(context.params!.tag),
         )
-        .sort(
-          (a: { date: Date }, b: { date: Date }) =>
-            b.date.getTime() - a.date.getTime(),
-        )
-        .map((seo: BlogSEOType & { href: string }) => ({
-          ...seo,
-          date: seo.date.toISOString(),
-          lastmod: seo.lastmod.toISOString(),
-        })),
+        .sort(sort.byDate)
+        .map(blogDateToIsoString),
     },
   };
 }) satisfies GetStaticProps<
   {
     tag: keyof typeof SEO_TAGS_COLORS;
-    links: (Omit<BlogSEOType, "date" | "lastmod"> & {
-      date: string;
-      lastmod: string;
-      href: string;
-    })[];
+    links: BlogLinkType[];
   },
   { tag: keyof typeof SEO_TAGS_COLORS }
 >;

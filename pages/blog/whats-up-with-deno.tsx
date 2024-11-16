@@ -4,6 +4,8 @@ import { CodeTag } from "@/components/CodeTag";
 import { BlogPostLayout, BlogSEOType } from "@/components/blog/BlogPostLayout";
 import { H3 } from "@/components/blog/H3";
 import { H4 } from "@/components/blog/H4";
+import { postStaticProps } from "@/lib/serverUtils";
+import { BlogLinkType } from "@/lib/types";
 
 export const seo: BlogSEOType = {
   title: "What's up with Deno?",
@@ -15,9 +17,11 @@ export const seo: BlogSEOType = {
   tags: ["development", "opinion"],
 };
 
-export default function BlogPostPage() {
+export const getStaticProps = postStaticProps;
+
+export default function BlogPostPage({ posts }: { posts: BlogLinkType[] }) {
   return (
-    <BlogPostLayout seo={seo}>
+    <BlogPostLayout seo={seo} relatedPostsPool={posts}>
       <p>
         Deno 2 was released a couple of weeks ago and most of us have seen the
         fun teasers and have heard of the new features. But why should it

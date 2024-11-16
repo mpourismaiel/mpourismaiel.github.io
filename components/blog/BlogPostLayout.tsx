@@ -8,7 +8,8 @@ import { Image } from "./Image";
 import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
 import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
+import { BlogLinkType } from "@/lib/types";
+import { cn, filter } from "@/lib/utils";
 
 export const SEO_TAGS_COLORS = {
   development: "bg-[#d946ef] text-black",
@@ -35,6 +36,7 @@ export const BlogPostLayout = ({
   includedImage,
   backLink = "/blog",
   hideComments,
+  relatedPostsPool,
   children,
 }: {
   title?: string;
@@ -42,6 +44,7 @@ export const BlogPostLayout = ({
   includedImage?: boolean;
   backLink?: string;
   hideComments?: boolean;
+  relatedPostsPool?: BlogLinkType[];
   children: React.ReactNode;
 }) => {
   return (
