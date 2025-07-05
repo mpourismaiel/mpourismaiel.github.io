@@ -162,7 +162,7 @@ export const Navigation = ({ isHome }: { isHome?: boolean }) => {
         <Button
           type="button"
           variant="default"
-          className="h-[58px] rounded-full border bg-white/10 dark:bg-black/10 backdrop-blur-md text-white"
+          className="h-[58px] rounded-full border border-black/40 bg-black/40 backdrop-blur-md text-white"
           onClick={backToTop}
         >
           <ChevronUpIcon className="size-6" />

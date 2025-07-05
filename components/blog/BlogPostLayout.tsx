@@ -108,7 +108,7 @@ export const BlogPostLayout = ({
               </time>
             </div>
             {seo.tags ? (
-              <div className="flex items-center gap-2 mb-6">
+              <div className="flex items-center gap-2 mb-6 flex-wrap">
                 {seo.tags.map(tag => (
                   <Link
                     key={tag}
