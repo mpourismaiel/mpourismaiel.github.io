@@ -18,7 +18,7 @@ export const Hero = () => {
           transition={{ duration: 1, delay: 0.5 }}
           className="text-lg lg:text-[26px] font-bold mb-2 md:mb-4 text-secondary-foreground"
         >
-          Full-Stack Web Developer, Hobbyist Game Developer
+          Full-Stack Web Developer
         </motion.h2>
         <motion.div
           initial={{ filter: "blur(10px)", opacity: 0 }}
