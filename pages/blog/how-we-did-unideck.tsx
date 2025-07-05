@@ -1,18 +1,17 @@
-import { CodeTag } from "@/components/CodeTag";
 import { BlogPostLayout, BlogSEOType } from "@/components/blog/BlogPostLayout";
 import { H3 } from "@/components/blog/H3";
 import { postStaticProps } from "@/lib/serverUtils";
 import { BlogLinkType } from "@/lib/types";
 
 export const seo: BlogSEOType = {
+  draft: false,
   title: "Unideck; How we did it",
   description:
     "How we made our custom solution to connect to all our services and make a custom dashboard for our team.",
   date: new Date("2025-07-05"),
   lastmod: new Date("2025-07-05"),
   image: "/unideck.svg",
-  imageExtraClasses:
-    "object-center object-scale-down bg-white w-full h-[250px]",
+  imageExtraClasses: "object-center object-cover bg-white w-full h-[250px]",
   tags: ["development", "technical"],
 };
 
@@ -62,7 +61,7 @@ export default function BlogPostPage({ posts }: { posts: BlogLinkType[] }) {
           Example of a custom dashboard with some of our widgets.
         </figcaption>
       </figure>
-      <h3 className="text-2xl font-bold">How does UniDeck work?</h3>
+      <H3 title="How does UniDeck work?" />
       <p>
         UniDeck works by allowing users to drag and drop widgets for different
         services and several local widgets, such as a to-do list and notes. Each
@@ -78,7 +77,7 @@ export default function BlogPostPage({ posts }: { posts: BlogLinkType[] }) {
         several important problems that prevented such a tool from existing
         before this.
       </p>
-      <h3 className="text-2xl font-bold">Tech Stack</h3>
+      <H3 title="Tech Stack" />
       <p>
         Handling all the widgets means juggling several logic-heavy components
         in custom arrangements and load orders. At first, we tried to implement
@@ -104,7 +103,7 @@ export default function BlogPostPage({ posts }: { posts: BlogLinkType[] }) {
         allowed us to have a bunch of modules available to be injected for use
         in these services.
       </p>
-      <h3 className="text-2xl font-bold">Product Hunt Launch</h3>
+      <H3 title="Product Hunt Launch" />
       <p>
         We launched an alpha version of unideck at the start of 2025 to gauge
         interest and as it turns out, we were not the only team facing this
