@@ -17,6 +17,9 @@ export const SEO_TAGS_COLORS = {
   comparison: "bg-[#0ea5e9] text-black",
   testing: "bg-[#10b981] text-black",
   benchmarking: "bg-[#f43f5e] text-black",
+  technical: "bg-[#f43f5e] text-black",
+  javascript: "bg-[#f43f5e] text-black",
+  frontend: "bg-[#f43f5e] text-black",
 };
 
 export type BlogSEOType = {
