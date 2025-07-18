@@ -12,6 +12,13 @@ export type ProjectType = {
 
 export const projects: ProjectType[] = [
   {
+    title: "UniDeck",
+    description:
+      "UniDeck is the most user-friendly and yet customizable dashboard for teams and companies to manage their projects and different services. It allows connecting to different services and having widgets in a familiar layout, shared with team members to improve team productivity and organization.",
+    href: "https://unideck.app/",
+    technologies: ["React", "TailwindCSS", "Shadcn", "NestJS"],
+  },
+  {
     title: "Ainur Landing Page",
     description:
       "Ainur is a web development agency that focuses on creating and developing advanced web applications. The landing page was designed to showcase the services and projects that Ainur HQ has worked on.",
