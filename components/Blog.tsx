@@ -26,18 +26,25 @@ export const Blog = ({
                   src={details.image}
                   alt={details.title}
                   className={cn(
-                    "w-full h-[250px] lg:h-[150px] object-cover",
+                    "w-full h-[300px] lg:h-[200px] object-cover",
                     details.imageExtraClasses,
                   )}
                 />
               ) : null}
               <div className="flex flex-col items-start ">
-                <CardHeader>
+                <CardHeader className="p-6 pb-4">
                   <CardTitle className="text-xl font-bold text-secondary-foreground text-center">
                     {details.title}
                   </CardTitle>
+                  <div className="flex items-center text-muted-foreground text-sm">
+                    {new Date(details.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </div>
                 </CardHeader>
-                <CardContent className="flex flex-wrap justify-around gap-4 mb-4">
+                <CardContent className="flex flex-wrap justify-around gap-4">
                   {details.description}
                 </CardContent>
               </div>
