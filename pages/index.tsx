@@ -1,6 +1,8 @@
+import { GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
 
 import { Background } from "@/components/Background";
+import { Blog } from "@/components/Blog";
 import { Experiences } from "@/components/Experiences";
 import { Footer } from "@/components/Footer";
 import { Github } from "@/components/Github";
@@ -8,11 +10,36 @@ import { Hero } from "@/components/Hero";
 import { Navigation } from "@/components/Navigation";
 import { Projects } from "@/components/Projects";
 import { Technologies } from "@/components/Technologies";
+import { BlogSEOType } from "@/components/blog/BlogPostLayout";
 import { Separator } from "@/components/ui/separator";
+import { getAllBlogPages } from "@/lib/pages";
+import { BlogLinkType, blogDateToIsoString } from "@/lib/types";
+import { sort } from "@/lib/utils";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
-export default function Home() {
+
+export const getStaticProps = (async () => {
+  return {
+    props: {
+      links: (await getAllBlogPages())
+        .filter(
+          (seo: BlogSEOType & { href: string }) =>
+            process.env.NODE_ENV !== "development" || !seo.draft,
+        )
+        .sort(sort.byDate)
+        .map(blogDateToIsoString),
+    },
+  };
+}) satisfies GetStaticProps<{
+  links: BlogLinkType[];
+}>;
+
+export default function Home({
+  links,
+}: {
+  links: (BlogSEOType & { href: string })[];
+}) {
   return (
     <QueryClientProvider client={queryClient}>
       <NextSeo
@@ -30,6 +57,8 @@ export default function Home() {
           <Github />
           <Separator />
           <Projects />
+          <Separator />
+          <Blog links={links} />
           <Separator />
           <Footer />
           <Navigation isHome />
