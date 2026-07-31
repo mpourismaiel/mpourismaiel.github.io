@@ -50,13 +50,13 @@ export default function Home({
         <Background />
         <main className="flex w-full max-w-full flex-col lg:max-w-[1000px] xl:max-w-screen-lg 2xl:max-w-screen-2xl gap-8 z-10">
           <Hero />
-          <Technologies />
+          <Projects />
           <Separator />
           <Experiences />
           <Separator />
-          <Github />
+          <Technologies />
           <Separator />
-          <Projects />
+          <Github />
           <Separator />
           <Blog links={links} />
           <Separator />

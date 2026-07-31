@@ -16,7 +16,7 @@ import { technologies } from "@/lib/technologies";
 export const Projects = () => {
   return (
     <div className="flex flex-col gap-4">
-      <TitleWithIcon>
+      <TitleWithIcon htmlID="projects">
         <LayoutDashboardIcon className="h-8 w-8" />
         Projects
       </TitleWithIcon>

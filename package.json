@@ -31,9 +31,7 @@
     "react-dom": "^18",
     "react-syntax-highlighter": "^15.6.1",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7",
-    "three": "^0.168.0",
-    "three-inspect": "^0.7.2"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
@@ -41,7 +39,6 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-syntax-highlighter": "^15.5.13",
-    "@types/three": "^0.168.0",
     "postcss": "^8",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.1",

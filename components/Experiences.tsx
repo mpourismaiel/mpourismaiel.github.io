@@ -43,7 +43,7 @@ export const Experiences = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      <TitleWithIcon>
+      <TitleWithIcon htmlID="experience">
         <BriefcaseBusinessIcon className="h-8 w-8" />
         Experiences
       </TitleWithIcon>
